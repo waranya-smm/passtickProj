@@ -1,0 +1,265 @@
+html {
+  scroll-behavior: smooth;
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(86, 136, 66, 0.7);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(86, 136, 66);
+}
+#head {
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 14px 30px;
+  overflow: hidden;
+
+  /* background-color: rgba(71, 167, 33, 0.699); */
+}
+li {
+  float: right;
+}
+li a {
+  font-size: 18px;
+  position: block;
+  margin-top: 200px;
+  color: white;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+}
+
+.logIn {
+  border: solid 1px green;
+  border-radius: 6px;
+  padding: 0.125em;
+}
+
+.logIn:hover {
+  color: #fbad5a;
+  background-color: #acb96a;
+}
+
+.money-inc {
+  font-size: 68px;
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 10px;
+}
+
+.contain-money {
+  width: 50%;
+  margin: 0 auto;
+  height: 20%;
+  background-color: rgba(86, 136, 66, 0.7);
+  border-radius: 80px;
+}
+
+.contain-money h1 {
+  text-align: center;
+  padding: 1em;
+  size: 200px;
+  color: #f1f1f1;
+}
+
+.passtick {
+  text-align: center;
+  width: 100%;
+  /* margin: 0 auto; */
+  color: white;
+}
+
+.passtick h3 {
+  margin-right: 20px;
+}
+
+.toRank {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #ffba5c;
+  border-radius: 20px;
+  border: 2px solid #ffba5c;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  height: 80px;
+  width: 20%;
+  margin-top: 4%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ranking {
+  height: 720px;
+  
+}
+.toRank:hover {
+  background-color: rgba(71, 167, 33, 0.699);
+  border: none;
+  color: white;
+}
+
+.tablink {
+  position: absolute;
+  z-index: 99;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(71, 167, 33, 0.699);
+  color: white;
+  float: left;
+  /* border-radius: 20px 0px 0px 0px; */
+  border: none !important;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  height: 80px;
+  width: 40%;
+}
+.tabUser {
+  margin-left: 10%;
+  margin-right: 5%;
+
+}
+.tabShop {
+  
+  margin-left: 50%;
+}
+
+.tablink:hover {
+  background-color: green;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+  
+}
+#USER {
+  color: #ffba5c;
+  background-color: #fbad5a;
+  border-radius: 20px;
+  margin: 5%;
+  margin-top: 0;
+  height: 600px;
+  overflow: auto;
+  
+}
+
+#whiteSpace {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  height: 100%;
+  border-radius: 20px;
+}
+
+table {
+  width: 100%;
+  padding: 2em;
+}
+
+td {
+  text-align: center;
+}
+
+#SHOP {
+  color: #acb96a;
+  background-color: #acb96a;
+  border-radius: 20px;
+  margin: 5%;
+  margin-top: 0;
+  height: 600px;
+  overflow: auto;
+}
+
+.howto {
+  height: 100%;
+  position: relative;
+  flex: none;
+  margin-top: 0;
+}
+.aboutApp-tp {
+  padding-top: 5%;
+  margin-left: 10%;
+  font-weight: bold;
+  color: white;
+}
+.aboutApp {
+  margin-left: 10%;
+  width: 24%;
+  height: 60%;
+}
+
+textarea {
+  padding: 2em;
+  color: rgb(255, 255, 255);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  resize: none;
+  background-color: rgba(86, 136, 66, 0.7);
+  outline: none;
+  border-radius: 20px;
+  border: transparent;
+  cursor: pointer;
+}
+textarea::-webkit-scrollbar {
+  width: 5px;
+  height: 20%;
+  cursor: pointer;
+}
+
+/* Track */
+textarea::-webkit-scrollbar-track {
+  background: rgba(86, 136, 66, 0.7);
+}
+
+/* Handle */
+textarea::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+textarea::-webkit-scrollbar-thumb:hover {
+  background: whitesmoke;
+}
+
+footer .footerr {
+  margin-top: 10%;
+  position: static;
+  height: 120px;
+  background-color: rgba(71, 167, 33, 0.699);
+}

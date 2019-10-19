@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adminstrator</title>
+    <link rel="stylesheet" href="./CSS/adminStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <header id="head">
+        <div id="orgNav">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </div>
+            <!-- <span id="opnSlide" onclick="openNav()"><i></i>open</span> -->
+            <a id="opnSlide" class="menu openIcon" onclick="openNav()"><span></span></a>
+
+        </div>
+        <div id="tablink" class="tablink">
+            <button>SHOP</button>
+            <button>PROJECTS</button>
+        </div>
+        <div id="main">
+
+            <div id="tabShop">
+                <div id="containShop">
+
+                </div>
+
+            </div>
+            <div id="tabProj"></div>
+
+    </header>
+
+    <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            // document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+
+        var shopArea = document.getElementById("tabShop");
+        var shopContain = document.getElementById("containShop");
+        var addShop = document.createElement("div");
+        addShop.style.width = "100%";
+        addShop.style.height = "160px";
+        addShop.style.position = "absolute";
+        addShop.style.borderRadius = "10px";
+        addShop.style.marginTop = "180px";
+        addShop.style.backgroundColor = colors();
+        shopContain.appendChild(addShop);
+
+
+
+
+        function colors() {
+            let colorArray = [];
+
+            for (let i = 0; i < 3; i++) {
+                colorArray.push(Math.floor(Math.random() * (255 - 0) + 0));
+            }
+            // rgb -> hex
+            let color = colorArray
+                .map(x => x.toString(16))
+                .join('');
+
+            return `#${color}`;
+        }
+
+    </script>
+</body>
+
+</html>

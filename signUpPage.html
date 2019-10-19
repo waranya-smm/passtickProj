@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up PassTick</title>
+    <!-- <link rel="stylesheet" href="./CSS/signUpStyle.css"> -->
+    <link rel="stylesheet" href="./CSS/logInStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        /* Style the buttons */
+        .btn {
+            position: block;
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: transparent;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            padding: 1em;
+            cursor: pointer;
+            height: 50px;
+            width: 49.5%;
+        }
+
+        /* Style the active class, and buttons on mouse-over */
+        .active,
+        .btn:hover {
+            background-color: white;
+            color: #666;
+            z-index: 66;
+        }
+    </style>
+    <script src="lib/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#shopSignUp').hide();
+
+
+            $('#user').click(function (event) {
+                $('#userSignUp').show();
+                $('#shopSignUp').hide();
+            });
+            $('#shop').click(function (event) {
+                $('#shopSignUp').show();
+                $('#userSignUp').hide();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="navBar" id="navBar">
+        <img src="./img/head-pic.png" id="headImg">
+        <div id="green">
+            <ul class="navbar-nav" id="navbar-nav">
+                <li class="logIn" id="logIn"><a href="loginPage.html">LOGIN</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="index.html">HOME</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="container">
+        <div id="tablink">
+            <!-- <input class="user" id="defaultOpen active" type="submit" value="USER" />
+            <input class="shop" id="defaultOpen" type="submit" value="SHOP" /> -->
+            <button class="btn active" id="user">USER</button>
+            <button class="btn" id="shop">SHOP</button>
+
+        </div>
+        <div id="tabcontent" class="tabcontent">
+            <div id="userSignUp" class="tabUser active">
+                <h1>Sign Up</h1>
+                <p>For collecting your own point and get
+                    higher ranking, please sign up with your user name and password</p>
+                <form>
+                    <input type="text" placeholder="User Name"><br>
+                    <input type="text" placeholder="Password"><br>
+                    <input type="text" placeholder="Confirm Password"><br>
+                    <input type="submit" value="Submit"><br>
+                    <a href=""></a>
+                </form>
+
+
+
+            </div>
+
+            <div id="shopSignUp">
+                <h1>Sign Up</h1>
+                <!-- <p>For collecting your own point and get
+                    higher ranking, please sign up with your user name and password</p> -->
+
+                <form >
+                    <label>Shop Admin</label><br>
+                    <input type="text" placeholder="User Name"><br>
+                    <input type="text" placeholder="Password"><br>
+                    <input type="text" placeholder="Confirm Password"><br>
+                    <label>Shop Detail</label><br>
+                    <input type="text" placeholder="Shop Name"><br>
+                    <input type="text" placeholder="FACEBOOK URL"><br>
+                    <input type="text" placeholder="Location Link"><br>
+                    <input type="submit" value="Submit"><br>
+                    <a href=""></a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var container = document.getElementById("container");
+        var btns = tablink.getElementsByClassName("btn");
+        console.log(btns.length);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    
+
+    </script>
+</body>
+
+</html>
