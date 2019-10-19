@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="./CSS/signUpStyle.css"> -->
     <link rel="stylesheet" href="./CSS/logInStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* Style the buttons */
         .btn {
@@ -39,7 +40,7 @@
     <script>
         $(document).ready(function () {
             $('#shopSignUp').hide();
-
+            $('#navbar-maxwidth').hide();
 
             $('#user').click(function (event) {
                 $('#userSignUp').show();
@@ -48,6 +49,11 @@
             $('#shop').click(function (event) {
                 $('#shopSignUp').show();
                 $('#userSignUp').hide();
+            });
+            $('#Navbar__Link-toggle').click(function (event) {
+                $('#navbar-maxwidth').slideToggle("slow");
+
+
             });
         });
     </script>
@@ -63,6 +69,15 @@
                 <li><a href="index.html">HOWTO</a></li>
                 <li><a href="index.html">HOME</a></li>
             </ul>
+            <ul id="navbar-maxwidth">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+            </ul>
+            <div class="Navbar__Link-toggle">
+                <i class="fa fa-bars" id="Navbar__Link-toggle"></i>
+            </div>
         </div>
     </div>
 
@@ -96,7 +111,7 @@
                 <!-- <p>For collecting your own point and get
                     higher ranking, please sign up with your user name and password</p> -->
 
-                <form >
+                <form>
                     <label>Shop Admin</label><br>
                     <input type="text" placeholder="User Name"><br>
                     <input type="text" placeholder="Password"><br>
@@ -126,7 +141,7 @@
             });
         }
     </script>
-    
+
 
     </script>
 </body>

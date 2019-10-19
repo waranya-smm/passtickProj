@@ -8,6 +8,7 @@
     <title>Login PassTick</title>
     <link rel="stylesheet" href="./CSS/logInStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* Style the buttons */
         .btn {
@@ -35,11 +36,103 @@
         }
     </style>
     <script src="lib/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="navBar" id="navBar">
+        <img src="./img/head-pic.png" id="headImg">
+        <div id="green">
+            <ul id="navbar-nav">
+                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="index.html">HOME</a></li>
+            </ul>
+            <ul id="navbar-maxwidth">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+
+            </ul>
+            <div class="Navbar__Link-toggle" id="Link-toggle">
+                <i class="fa fa-bars" id="Navbar__Link-toggle"></i>
+            </div>
+        </div>
+    </div>
+    <section id="form-contain">
+        <div id="container">
+            <div id="tablink">
+                <!-- <input class="user" id="defaultOpen active" type="submit" value="USER" />
+            <input class="shop" id="defaultOpen" type="submit" value="SHOP" /> -->
+                <button class="btn active" id="user">USER</button>
+                <button class="btn" id="shop">SHOP</button>
+                <button class="btn" id="admin">ADMIN</button>
+
+            </div>
+            <div id="tabcontent" class="tabcontent">
+                <div id="userLogin" class="tabUser active">
+                    <h1>Log In</h1>
+                    <p>For collecting your own point and get
+                        higher ranking, please login with your user name and password</p>
+                    <form>
+                        <input type="text" placeholder="User Name"><br>
+                        <input type="text" placeholder="Password"><br>
+                        <!-- <input type="text" placeholder="Confirm Password"><br> -->
+                        <input type="submit" value="Submit"><br>
+                        <a href="">Forget Password?</a>
+                    </form>
+
+
+
+                </div>
+
+                <div id="shopLogin" class="tabcontent">
+                    <h1>Log In</h1>
+                    <p>For collecting your own point and get
+                        higher ranking, please login with your user name and password</p>
+
+                    <form>
+                        <label>Shop Admin</label><br>
+                        <input type="text" placeholder="User Name"><br>
+                        <input type="text" placeholder="Password"><br>
+                        <!-- <input type="text" placeholder="Confirm Password"><br> -->
+                        <input type="submit" value="Submit"><br>
+                        <a href="">Forget Password?</a>
+                    </form>
+
+                </div>
+
+                <div id="adminLogin" class="tabcontent">
+                    <h1>Log In</h1>
+                    <p>For managing shop and project, please login as administrator.</p>
+                    <form>
+                        <label>Administrator</label><br>
+                        <input type="text" placeholder="User Name"><br>
+                        <input type="text" placeholder="Password"><br>
+                        <!-- <input type="text" placeholder="Confirm Password"><br> -->
+                        <input type="submit" value="Submit"><br>
+                        <a href="">How can get administrator password?</a>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         $(document).ready(function () {
             $('#shopLogin').hide();
             $('#adminLogin').hide();
-
+            $('#navbar-maxwidth').hide();
+            // $('#container').hide();
+            var width = $(window).width();
+            if (width <= 1024) {
+                $('#container').hide();
+            } else {
+                
+            }
 
             $('#user').click(function (event) {
                 $('#userLogin').show();
@@ -56,82 +149,16 @@
                 $('#userLogin').hide();
                 $('#shopLogin').hide();
             });
+
+            $('#Navbar__Link-toggle').click(function (event) {
+                $('#navbar-maxwidth').slideToggle("slow");
+                $('#container').animate({
+                    top: '100px'
+                });
+
+
+            });
         });
-    </script>
-</head>
-
-<body>
-    <div class="navBar" id="navBar">
-        <img src="./img/head-pic.png" id="headImg">
-        <div id="green">
-            <ul class="navbar-nav" id="navbar-nav">
-                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="index.html">HOWTO</a></li>
-                <li><a href="index.html">HOME</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="container">
-        <div id="tablink">
-            <!-- <input class="user" id="defaultOpen active" type="submit" value="USER" />
-            <input class="shop" id="defaultOpen" type="submit" value="SHOP" /> -->
-            <button class="btn active" id="user">USER</button>
-            <button class="btn" id="shop">SHOP</button>
-            <button class="btn" id="admin">ADMIN</button>
-
-        </div>
-        <div id="tabcontent" class="tabcontent">
-            <div id="userLogin" class="tabUser active">
-                <h1>Log In</h1>
-                <p>For collecting your own point and get
-                    higher ranking, please login with your user name and password</p>
-                <form>
-                    <input type="text" placeholder="User Name"><br>
-                    <input type="text" placeholder="Password"><br>
-                    <!-- <input type="text" placeholder="Confirm Password"><br> -->
-                    <input type="submit" value="Submit"><br>
-                     <a href="">Forget Password?</a>
-                </form>
-               
-
-
-            </div>
-
-            <div id="shopLogin" class="tabcontent">
-                <h1>Log In</h1>
-                <p>For collecting your own point and get
-                    higher ranking, please login with your user name and password</p>
-
-                <form>
-                    <label>Shop Admin</label><br>
-                    <input type="text" placeholder="User Name"><br>
-                    <input type="text" placeholder="Password"><br>
-                    <!-- <input type="text" placeholder="Confirm Password"><br> -->
-                    <input type="submit" value="Submit"><br>
-                    <a href="">Forget Password?</a>
-                </form>
-
-            </div>
-
-            <div id="adminLogin" class="tabcontent">
-                <h1>Log In</h1>
-                <p>For managing shop and project, please login as administrator.</p>
-                <form>
-                    <label>Administrator</label><br>
-                    <input type="text" placeholder="User Name"><br>
-                    <input type="text" placeholder="Password"><br>
-                    <!-- <input type="text" placeholder="Confirm Password"><br> -->
-                    <input type="submit" value="Submit"><br>
-                    <a href="">How can get administrator password?</a>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    <script>
 
         var container = document.getElementById("container");
         var btns = tablink.getElementsByClassName("btn");
@@ -143,6 +170,7 @@
                 this.className += " active";
             });
         }
+        
     </script>
 
 
