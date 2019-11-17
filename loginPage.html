@@ -43,32 +43,39 @@
     <div class="navBar" id="navBar">
         <img src="./img/head-pic.png" id="headImg">
         <div id="green">
-            <ul id="navbar-nav">
-                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="index.html">HOWTO</a></li>
-                <li><a href="index.html">HOME</a></li>
-            </ul>
-            <ul id="navbar-maxwidth">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="index.html">HOWTO</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+            <div id="topNav">
+                <ul id="navbar-nav">
+                    <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+                    <li><a href="#">PROJECTS</a></li>
+                    <li><a href="index.html">HOWTO</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                </ul>
+            </div>
+            <div id="navbar-maxwidth">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html">HOWTO</a></li>
+                    <li><a href="#">PROJECTS</a></li>
+                    <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
 
-            </ul>
+                </ul>
+            </div>
             <div class="Navbar__Link-toggle" id="Link-toggle">
                 <i class="fa fa-bars" id="Navbar__Link-toggle"></i>
             </div>
+
         </div>
     </div>
     <section id="form-contain">
         <div id="container">
             <div id="tablink">
+                <br><br><br>
                 <!-- <input class="user" id="defaultOpen active" type="submit" value="USER" />
             <input class="shop" id="defaultOpen" type="submit" value="SHOP" /> -->
                 <button class="btn active" id="user">USER</button>
                 <button class="btn" id="shop">SHOP</button>
                 <button class="btn" id="admin">ADMIN</button>
+
 
             </div>
             <div id="tabcontent" class="tabcontent">
@@ -123,16 +130,26 @@
 
     <script>
         $(document).ready(function () {
+
             $('#shopLogin').hide();
             $('#adminLogin').hide();
             $('#navbar-maxwidth').hide();
             // $('#container').hide();
+            navBarwidth();
             var width = $(window).width();
-            if (width <= 1024) {
-                $('#container').hide();
-            } else {
-                
+            function navBarwidth() {
+                if (width < 1024) {
+
+
+                    $('#topNav').hide();
+                   
+                } else if (width >= 1024) {
+                    $('#topNav').show();
+
+
+                }
             }
+         
 
             $('#user').click(function (event) {
                 $('#userLogin').show();
@@ -151,9 +168,21 @@
             });
 
             $('#Navbar__Link-toggle').click(function (event) {
+                if (width < 1024) {
+
+                    $('#topNav').hide();
+
+                    
+                } else if (width >= 1024) {
+                    $('#topNav').show();
+
+
+                }
+
                 $('#navbar-maxwidth').slideToggle("slow");
                 $('#container').animate({
-                    top: '100px'
+                    top: '100px',
+                    
                 });
 
 
@@ -170,7 +199,7 @@
                 this.className += " active";
             });
         }
-        
+
     </script>
 
 
