@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Passtick</title>
+    <link rel="stylesheet" type="text/css" href="style-scrollbar.css">
+    <style>
+
+        .font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+        }
+
+        .center {
+            margin: auto;
+            margin-top: 8%;
+        }
+
+        .bg-white {
+            border: 1px solid rgba(143, 143, 143, 0.7);
+            border-radius: 10px;
+            margin: auto;
+            padding: 1%;
+
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+
+            overflow: auto;
+        }
+
+        td {
+            color: gray;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+        }
+
+        table,
+        td,
+        th {
+            border-collapse: collapse;
+
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            float: left;
+        }
+
+        .btn {
+            background-color: green;
+            border: none;
+            border-radius: 0px;
+            color: white;
+            display: inline-block;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 10px;
+            opacity: 0.80;
+        }
+
+        .--no {
+            background-color: red;
+        }
+
+        .--yes,
+        .--no {
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .bg_nav {
+            background-color:rgba(119, 211, 83, 0.7);
+        }
+    </style>
+</head>
+
+<body background="images/gradian-org.png">
+    <div class="navBar" id="navBar">
+        <div id="green" class="bg_nav">
+            <ul id="navbar-nav">
+                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="index.html">HOME</a></li>
+            </ul>
+            <!-- <ul id="navbar-maxwidth">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li id="signupTab"><a href="signUpPage.html">SIGN UP</a></li>
+
+            </ul> -->
+            <div class="Navbar__Link-toggle" id="Link-toggle">
+                <i class="fa fa-bars" id="Navbar__Link-toggle"></i>
+            </div>
+        </div>
+    </div>    
+    <div class="center" style="margin-top: 1%">
+
+        <div class="bg-white font">
+            <div style="float:left;width:40%;color: rgb(255, 179, 102)">
+                <h1 class="font" style="float: left;margin: 5%">YOUR RANK:<h1 id="numb-rank" class="font"
+                        style="margin: 5%;text-align: left">0</h1>
+                </h1>
+            </div>
+
+            <div style="float: left">
+                <img src="images/cats.jpg" style="margin-left: 20px;width:120px;height: 120px;border-radius: 50%">
+                <h2 id="editpic" style="margin-left: 20px;margin-bottom: 0px;font-size: 20px;text-align: left;color:gray"
+                    class="font">edit profile</h2>
+                <h2 style="margin-left: 10px; margin-top: 0px;text-align: left" class="font">SHOP NAME</h2>
+            </div>
+        </div>
+
+        <div class="bg-white font">
+            <div style="width:20%;float:left;padding: 10px">
+                <h1 style="float: left;margin-right:0px;margin-top:0%">ACCEPT</h1>
+            </div>
+
+            <div>
+                <table>
+                    <tr>
+                        <th>USER</th>
+                        <th>CUP Size</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th name="accecp_or_not"></th>
+                    </tr>
+                    <tr>
+                        <td>USER</td>
+                        <td>CUP Size</td>
+                        <td>DD/MM/YY</td>
+                        <td>HH.MM</td>
+                        <td>
+                            <!-- YES -->
+                            <button class="btn --yes">
+                                <i>done</i>
+                            </button>
+                            <!-- NO ICON -->
+                            <button class="btn --no">
+                                <i>clear</i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="bg-white font">
+            <div style="float:left;width:20%;padding:10px">
+                <h1 style="float:left;margin-top:0%">COST</h1>
+            </div>
+
+            <div style="float:left;width:20%;padding: 10px">
+                <h3 style="margin: 0%;font-size: 15px;padding-left: 10%;padding-right: 10%">CUP Size</h3>
+                <select style="width: 100%">
+                    <option value="16" selected>16 Oz.</option>
+                    <option value="22">22 Oz.</option>
+                </select>
+            </div>
+
+            <div style="float:left;padding: 10px">
+                <h3 style="margin:auto;font-size: 16px;padding-left: 10%;padding-right: 10%">Price/piece</h3>
+                <input type="text" placeholder="Insert Price" style="float:left">
+            </div>
+
+            <div style="float:left;padding:23px;padding-left:4%">
+                <!-- YES -->
+                <button class="btn --yes">
+                    <i>done</i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="bg-white font">
+            <div style="float:left;width:20%;padding: 10px">
+                <h1 style="float:left;margin-right:0px;margin-top:0%">UPDATE
+                    <h2 id="date" class="font"></h2>
+                </h1>
+            </div>
+
+            <div style="float:left;padding-left: 6%;padding-right: 6%">
+                <h2 style="margin-top: 0px;font-size: 20px">Money</h2>
+                <div style="clear: left">
+                    <h3 style="margin-top: 0px;color: gray">0</h3>
+                </div>
+            </div>
+
+            <div style="float:left;padding-left: 6%;padding-right: 6%">
+                <h2 style="margin-top: 0px;font-size:20px">Cup(piece)</h2>
+                <div>
+                    <h3 style="margin-top: 0px;color: gray">0</h3>
+                </div>
+            </div>
+
+        </div>
+        <div name="footer" style="height: 80px">
+            
+        </div>
+</body>
+
+</html>

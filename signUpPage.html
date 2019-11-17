@@ -35,6 +35,13 @@
             color: #666;
             z-index: 66;
         }
+        .center_dt {
+            display: block;
+            text-align: center;
+            background-color: tomato;
+            width: 100%;
+        }
+
     </style>
     <script src="lib/jquery.js"></script>
     <script>
@@ -80,53 +87,54 @@
             </div>
         </div>
     </div>
-
-    <div id="container">
-        <div id="tablink">
-            <!-- <input class="user" id="defaultOpen active" type="submit" value="USER" />
-            <input class="shop" id="defaultOpen" type="submit" value="SHOP" /> -->
-            <button class="btn active" id="user">USER</button>
-            <button class="btn" id="shop">SHOP</button>
-
-        </div>
-        <div id="tabcontent" class="tabcontent">
-            <div id="userSignUp" class="tabUser active">
-                <h1>Sign Up</h1>
-                <p>For collecting your own point and get
-                    higher ranking, please sign up with your user name and password</p>
-                <form>
-                    <input type="text" placeholder="User Name"><br>
-                    <input type="text" placeholder="Password"><br>
-                    <input type="text" placeholder="Confirm Password"><br>
-                    <input type="submit" value="Submit"><br>
-                    <a href=""></a>
-                </form>
-
-
+    
+      <!-- <div class="center_ct">   -->
+        <div id="container">
+            <div id="tablink">
+                <!-- <input class="user" id="defaultOpen active" type="submit" value="USER" />
+                <input class="shop" id="defaultOpen" type="submit" value="SHOP" /> -->
+                <button class="btn active" id="user">USER</button>
+                <button class="btn" id="shop">SHOP</button>
 
             </div>
+            <div id="tabcontent" class="tabcontent">
+                <div id="userSignUp" class="tabUser active">
+                    <h1>Sign Up</h1>
+                    <p>For collecting your own point and get
+                        higher ranking, please sign up with your user name and password</p>
+                    <form>
+                        <input type="text" placeholder="User Name"><br>
+                        <input type="text" placeholder="Password"><br>
+                        <input type="text" placeholder="Confirm Password"><br>
+                        <input type="submit" value="Submit"><br>
+                        <a href=""></a>
+                    </form>
 
-            <div id="shopSignUp">
-                <h1>Sign Up</h1>
-                <!-- <p>For collecting your own point and get
-                    higher ranking, please sign up with your user name and password</p> -->
 
-                <form>
-                    <label>Shop Admin</label><br>
-                    <input type="text" placeholder="User Name"><br>
-                    <input type="text" placeholder="Password"><br>
-                    <input type="text" placeholder="Confirm Password"><br>
-                    <label>Shop Detail</label><br>
-                    <input type="text" placeholder="Shop Name"><br>
-                    <input type="text" placeholder="FACEBOOK URL"><br>
-                    <input type="text" placeholder="Location Link"><br>
-                    <input type="submit" value="Submit"><br>
-                    <a href=""></a>
-                </form>
 
+                </div>
+
+                <div id="shopSignUp">
+                    <h1>Sign Up</h1>
+                    <!-- <p>For collecting your own point and get
+                        higher ranking, please sign up with your user name and password</p> -->
+
+                    <form>
+                        <label>Shop Admin</label><br>
+                        <input type="text" placeholder="User Name"><br>
+                        <input type="text" placeholder="Password"><br>
+                        <input type="text" placeholder="Confirm Password"><br>
+                        <label>Shop Detail</label><br>
+                        <input type="text" placeholder="Shop Name"><br>
+                        <input type="text" placeholder="FACEBOOK URL"><br>
+                        <input type="text" placeholder="Location Link"><br>
+                        <input type="submit" value="Submit"><br>
+                        <a href=""></a>
+                    </form>
+
+                </div>
             </div>
         </div>
-    </div>
 
     <script>
 
@@ -142,8 +150,6 @@
         }
     </script>
 
-
-    </script>
 </body>
 
 </html>
