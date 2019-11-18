@@ -1,0 +1,62 @@
+/* style-login-page */
+.form-login{
+    font-family: 'Montserrat', sans-serif;
+
+    text-align: center;
+    width: 25%;
+    margin: 0 auto;
+    padding: 1%;
+    background-color: white;
+}
+
+input[type=text]{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+input[type=submit] {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    background-color:#34495E;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#button-sign-up{
+    background-color: white;
+    border: 2px solid #5D6D7E ;
+    color: black;
+}
+#button-sign-up:hover{
+    color: white;
+    background-color: #45a049;
+}
+input[type=submit]:hover {
+    
+    background-color: #45a049;
+}
+#forget-pass{
+    font-size: 12px;
+    color: #7F8C8D;
+}
+
+.html-login{
+    background-color: #ABEBC6;
+    
+}
+
+.body-form{
+    margin: 10%;
+}
+
+
+

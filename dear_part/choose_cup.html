@@ -1,25 +1,61 @@
 <!DOCTYPE html>
-<html class="html-choose">
-    <head>
-        <meta charset="utf-8">
-        <title>Choose cup you save</title>
-        <link rel="stylesheet" type="text/css" href="CSS/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    </head>
-    <body class="body-choose">
-        <div class="choose-cup">
-            <div id="title-choose"><h2>CHOOSE CUP YOU SAVE</h2></div>
-            <div class="img-cup"><img src="images/cup-16oz.jpg" alt="cup-16oz"></div>
-            <div class="select-shop">
-                <h5 id="select-text">SHOP</h5>
-                <select class="shop-select">
-                        <option value="0">Shop Name</option>
-                </select>
-            </div>
-            <div>
-                <input id="button-next16oz" type="submit" value="Next">
-            </div>
-        </div>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Choose cup you save</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style_choose_cup.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     
-    </body>
+</head>
+
+<body>
+    <div class="choose-cup">
+        <div id="title-choose"><h2>CHOOSE CUP YOU SAVE</h2></div>
+    </div>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 2</div>
+            <img src="images/cup-16oz.jpg" style="width: 150px">
+            
+            <div class="text">16 Oz</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 2</div>
+            <img src="images/cup-22oz.jpg" style="width:150px">
+            
+            <div class="text">22 Oz</div>
+        </div>
+
+     
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        
+    </div>
+
+    <div class="select-shop">
+        <h5 id="select-text">SHOP</h5>
+        <select class="shop-select">
+            <option value="0">Shop Name</option>
+        </select>
+    </div>
+    <div class="select-shop">
+        <input id="button-next" type="submit" value="Next" onclick="window.location.href='../thankYou.html'">
+    </div>
+
+    <script src="js/script-choose.js"></script>
+    
+
+</body>
+
 </html>
