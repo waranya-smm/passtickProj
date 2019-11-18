@@ -13,10 +13,7 @@ html {
   #Navbar__Link-toggle {
     color:white;   
   } 
-  
-}
-a {
-  z-index: 99;
+
 }
 
 #navBar {
@@ -94,17 +91,17 @@ ul {
   padding: 0;
 }
 
-#navbar-nav li #navbar-nav a:hover {
-  color: aliceblue;
+#navbar-nav li:hover, #navbar-nav a:hover {
+  color:#fbad5a;
 }
 
-#signupTab:hover,
+/* 
+#loginActive:hover,
 #logIn:hover {
   background-color: rgba(86, 136, 66, 0.7);
-  /* padding: 0.2rem; */
   border: 1px solid #fbad5a;
   border-radius: 4px;
-}
+} */
 
 
 
