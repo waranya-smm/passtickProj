@@ -6,7 +6,6 @@
     <title>Passtick</title>
     <link rel="stylesheet" type="text/css" href="style-scrollbar.css">
     <style>
-
         .font {
             font-family: 'Montserrat', sans-serif;
         }
@@ -82,8 +81,9 @@
             border-radius: 20px;
             padding: 10px;
         }
+
         .bg_nav {
-            background-color:rgba(119, 211, 83, 0.7);
+            background-color: rgba(119, 211, 83, 0.7);
         }
     </style>
 </head>
@@ -108,7 +108,7 @@
                 <i class="fa fa-bars" id="Navbar__Link-toggle"></i>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="center" style="margin-top: 1%">
 
         <div class="bg-white font">
@@ -120,9 +120,12 @@
 
             <div style="float: left">
                 <img src="images/cats.jpg" style="margin-left: 20px;width:120px;height: 120px;border-radius: 50%">
-                <h2 id="editpic" style="margin-left: 20px;margin-bottom: 0px;font-size: 20px;text-align: left;color:gray"
-                    class="font">edit profile</h2>
-                <h2 style="margin-left: 10px; margin-top: 0px;text-align: left" class="font">SHOP NAME</h2>
+                <h2 id="editpic"
+                    style="margin-left: 20px;margin-bottom: 0px;font-size: 20px;text-align: left;color:gray"
+                    class="font" onclick="EDIT_PIC()"><input id="pic_add" type="file"
+                        accept="image/x-png,image/gif,image/jpeg">
+                    <h2>
+                        <h2 style="margin-left: 10px; margin-top: 0px;text-align: left" class="font">SHOP NAME</h2>
             </div>
         </div>
 
@@ -209,9 +212,70 @@
             </div>
 
         </div>
-        <div name="footer" style="height: 80px">
+        <div name="footer" style="height: 80px" onclick="onPress()">
             
+
         </div>
+        <script src="test.js"></script>
+        <script>
+            function EDIT_PIC() {
+                //เป็นการแก้ไขรูปโปรไฟล์
+                var addpic = document.getElementById("editpic");
+                var addpic = document.getElementById("pic_add");
+                addpic.setAttribute('img', addpic);
+
+                //ยังต้องแก้ไขต่อ
+            }
+
+        </script>
+       <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="/__/firebase/7.4.0/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="/__/firebase/7.4.0/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="/__/firebase/7.4.0/firebase-auth.js"></script>
+        <script src="/__/firebase/7.4.0/firebase-firestore.js"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            addDB();
+
+            function addDB(){
+                var firebaseConfig = {
+                apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+                authDomain: "passtick-2091d.firebaseapp.com",
+                databaseURL: "https://passtick-2091d.firebaseio.com",
+                projectId: "passtick-2091d",
+                storageBucket: "passtick-2091d.appspot.com",
+                messagingSenderId: "72068778853",
+                appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+                measurementId: "G-JKG1E5W8T6"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            var db = firebase.firestore();
+            db.collection("users").add({
+                username: "Ada",
+                password: "Lovelace",
+            })
+                .then(function (docRef) {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch(function (error) {
+                    console.error("Error adding document: ", error);
+                });
+        }
+
+        </script>
 </body>
 
 </html>
