@@ -1,0 +1,26 @@
+
+/* thank-you-page */
+.choose-thanks{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+#img-cup{
+    width: 20%;
+    height: 20%;
+}
+
+#go-to-main{
+    width: 12%;
+    color: white;
+    border-radius: 50px;
+    background-color:#E67E22 ;
+}
+
+#go-to-login{
+    width: 12%;
+    color: #E67E22;
+    border-radius: 50px;
+    background-color: white;
+    border: 2px solid #E67E22;
+}
+

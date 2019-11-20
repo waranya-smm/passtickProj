@@ -1,0 +1,42 @@
+
+/* show Rank page */
+.html-rank{
+    font-family: 'Montserrat', sans-serif;
+    width: 25%;
+    padding: 10%;
+    margin: 0 auto;
+    
+}
+#pic-profile{
+    border-radius: 20%;
+    background: rgb(237, 237, 237);
+}
+.rank{
+    text-align: center;
+    padding-bottom: 20%;
+}
+
+#display-rank{
+    margin: 0 auto;
+  
+    border-radius: 50%;
+    background: rgb(237, 237, 237);
+}
+#numRank{
+    padding-top: 27%;
+}
+.point-line{
+    display: inline;
+}
+#sign-out{
+    text-align: center;
+}
+#button-signOut{
+    
+    width: 75%;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid #5D6D7E ;
+    color: black;
+}
