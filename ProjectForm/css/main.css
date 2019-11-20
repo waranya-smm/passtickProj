@@ -25,7 +25,7 @@ html {
 }
 
 /*---------------------------------------------*/
-a {
+.limiter a {
   font-family: "Montserrat", sans-serif;
 
   font-size: 14px;
@@ -72,25 +72,25 @@ a {
   opacity: 0;
 }
 
-a:focus {
+.limiter a:focus {
   outline: none !important;
 }
 
-a:hover {
+.limiter a:hover {
   text-decoration: none;
 }
 
 /*---------------------------------------------*/
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   margin: 0px;
-}
+} */
 
-p {
+.limiter p {
   font-family: "Montserrat", sans-serif;
 
   font-size: 14px;
@@ -99,36 +99,36 @@ p {
   margin: 0px;
 }
 
-ul,
-li {
+.limiter ul,
+.limiter li {
   margin: 0px;
   list-style-type: none;
 }
 
 /*---------------------------------------------*/
-input {
+.limiter input {
   outline: none;
   border: none;
 }
 
-input[type="number"] {
+.limiter input[type="number"] {
   -moz-appearance: textfield;
   appearance: none;
   -webkit-appearance: none;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+.limiter input[type="number"]::-webkit-outer-spin-button,
+.limiter input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-textarea {
+.limiter textarea {
   outline: none;
   border: none;
 }
 
-textarea:focus,
-input:focus {
+.limiter textarea:focus,
+.limiter input:focus {
   border-color: transparent !important;
 }
 

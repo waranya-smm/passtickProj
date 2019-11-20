@@ -175,7 +175,7 @@ ul {
   padding-bottom: 5%;
 }
 
-#tabcontent input[type="text"] {
+#tabcontent input[type="password"],#tabcontent input[type="text"],#tabcontent input[type="url"],#tabcontent input[type="email"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
