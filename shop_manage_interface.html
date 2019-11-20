@@ -5,15 +5,19 @@
     <meta charset="utf-8">
     <title>Passtick</title>
     <link rel="stylesheet" type="text/css" href="style-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <style>
         .font {
-            font-family: 'Montserrat', sans-serif;
+            font-family: "Montserrat", sans-serif;;
         }
 
         h1,
         h2,
-        h3 {
+        h3
+        {
             text-align: center;
+            font-family: "Montserrat", sans-serif;
         }
 
         .center {
@@ -122,73 +126,13 @@
                 <img src="images/cats.jpg" style="margin-left: 20px;width:120px;height: 120px;border-radius: 50%">
                 <h2 id="editpic"
                     style="margin-left: 20px;margin-bottom: 0px;font-size: 20px;text-align: left;color:gray"
-                    class="font" onclick="EDIT_PIC()"><input id="pic_add" type="file"
-                        accept="image/x-png,image/gif,image/jpeg">
-                    <h2>
-                        <h2 style="margin-left: 10px; margin-top: 0px;text-align: left" class="font">SHOP NAME</h2>
+                    class="font" onclick="EDIT_PIC()">
+                    <input type="file" name="pic" accept="image/*">
+                <h2 style="margin-left: 10px; margin-top: 0px;text-align: left" class="font" id="shopname">SHOP NAME</h2>
             </div>
         </div>
 
-        <div class="bg-white font">
-            <div style="width:20%;float:left;padding: 10px">
-                <h1 style="float: left;margin-right:0px;margin-top:0%">ACCEPT</h1>
-            </div>
-
-            <div>
-                <table>
-                    <tr>
-                        <th>USER</th>
-                        <th>CUP Size</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th name="accecp_or_not"></th>
-                    </tr>
-                    <tr>
-                        <td>USER</td>
-                        <td>CUP Size</td>
-                        <td>DD/MM/YY</td>
-                        <td>HH.MM</td>
-                        <td>
-                            <!-- YES -->
-                            <button class="btn --yes">
-                                <i>done</i>
-                            </button>
-                            <!-- NO ICON -->
-                            <button class="btn --no">
-                                <i>clear</i>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="bg-white font">
-            <div style="float:left;width:20%;padding:10px">
-                <h1 style="float:left;margin-top:0%">COST</h1>
-            </div>
-
-            <div style="float:left;width:20%;padding: 10px">
-                <h3 style="margin: 0%;font-size: 15px;padding-left: 10%;padding-right: 10%">CUP Size</h3>
-                <select style="width: 100%">
-                    <option value="16" selected>16 Oz.</option>
-                    <option value="22">22 Oz.</option>
-                </select>
-            </div>
-
-            <div style="float:left;padding: 10px">
-                <h3 style="margin:auto;font-size: 16px;padding-left: 10%;padding-right: 10%">Price/piece</h3>
-                <input type="text" placeholder="Insert Price" style="float:left">
-            </div>
-
-            <div style="float:left;padding:23px;padding-left:4%">
-                <!-- YES -->
-                <button class="btn --yes">
-                    <i>done</i>
-                </button>
-            </div>
-
-        </div>
+        
 
         <div class="bg-white font">
             <div style="float:left;width:20%;padding: 10px">
@@ -200,14 +144,14 @@
             <div style="float:left;padding-left: 6%;padding-right: 6%">
                 <h2 style="margin-top: 0px;font-size: 20px">Money</h2>
                 <div style="clear: left">
-                    <h3 style="margin-top: 0px;color: gray">0</h3>
+                    <h3 style="margin-top: 0px;color: gray" id="money">0</h3>
                 </div>
             </div>
 
             <div style="float:left;padding-left: 6%;padding-right: 6%">
                 <h2 style="margin-top: 0px;font-size:20px">Cup(piece)</h2>
                 <div>
-                    <h3 style="margin-top: 0px;color: gray">0</h3>
+                    <h3 style="margin-top: 0px;color: gray" id="piece">0</h3>
                 </div>
             </div>
 
@@ -244,37 +188,51 @@
         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
 
         <script>
-            // Your web app's Firebase configuration
-            addDB();
-
-            function addDB(){
-                var firebaseConfig = {
-                apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
-                authDomain: "passtick-2091d.firebaseapp.com",
-                databaseURL: "https://passtick-2091d.firebaseio.com",
-                projectId: "passtick-2091d",
-                storageBucket: "passtick-2091d.appspot.com",
-                messagingSenderId: "72068778853",
-                appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
-                measurementId: "G-JKG1E5W8T6"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-
-            var db = firebase.firestore();
-            db.collection("users").add({
-                username: "Ada",
-                password: "Lovelace",
-            })
-                .then(function (docRef) {
-                    console.log("Document written with ID: ", docRef.id);
+            var   firebaseConfig = {
+                            apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+                            authDomain: "passtick-2091d.firebaseapp.com",
+                            databaseURL: "https://passtick-2091d.firebaseio.com",
+                            projectId: "passtick-2091d",
+                            storageBucket: "passtick-2091d.appspot.com",
+                            messagingSenderId: "72068778853",
+                            appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+                            measurementId: "G-JKG1E5W8T6"
+                    };
+                    
+            const myFirebase = firebase.initializeApp(firebaseConfig);
+            let firestore = myFirebase.firestore();
+    
+            var Money = document.getElementById('money');
+            var piece = document.getElementById("piece");
+            var shopname = document.getElementById('shopname');
+            
+            readData();
+            function readData () {
+                    firestore.collection("SHOP").get()
+                    .then((values) => {values.forEach(element => {
+                                
+                    piece.innerText = element.data().piece;
+                    Money.innerText = element.data().money;
+                    shopname.innerText = element.data().NAME;
+                    });
                 })
-                .catch(function (error) {
-                    console.error("Error adding document: ", error);
-                });
-        }
+            } 
+            function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				var imgCover = input.files[0];
 
+				reader.onload = function (e) {
+					$('#blah')
+						.attr('src', e.target.result);
+				};
+
+				reader.readAsDataURL(imgCover);
+				console.log(imgCover);
+				return imgCover;
+
+			}
+		}     
         </script>
 </body>
 
