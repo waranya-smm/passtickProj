@@ -130,14 +130,14 @@
                     <label>Shop Admin</label><br>
                     <input id="adminName" type="text" placeholder="User Name" required><br>
 
-                    <input id="email" type="text" placeholder="Your Email" required><br>
+                    <input id="email" type="email" placeholder="Your Email" required><br>
                     <input id="password" type="password" placeholder="Password" required><br>
                     <input id="pwConfirm" type="password" placeholder="Confirm Password" required><br>
                     <label>Shop Detail</label><br>
                     <input id="shopName" type="text" placeholder="Shop Name" required><br>
                     <input id="fbUrl" type="text" placeholder="FACEBOOK URL" required><br>
                     <input id="locationURL" type="url" placeholder="Location Link" required><br>
-                    <input onclick="handleSignUpShop(event)" type="submit" value="SING UP"><br>
+                    <input onclick="handleSignUp(event)" id="shopSubmit" type="submit" value="SING UP"><br>
 
                     <a href=""></a>
                 </form>
@@ -184,6 +184,7 @@
         console.log(myFirebase)
     </script>
     <script src="signup.js"></script>
+    
 
 </body>
 
