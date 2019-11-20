@@ -162,9 +162,16 @@
     <script>
 
         //Add Succeed Project 
-
+        $(document).ready(function() {
+                
+                $.getJSON('project.json', function (jd, index) {
+                   
+                        console.log(jd);
+                        
+                 for (i = 0; i < jd.project.length; i++) {
+                     console.log(jd.project[i]);
         var each_project = document.getElementById("each_project");
-        document.body.addEventListener('click', function () {
+     
 
             //create each project
             var project = document.createElement("div");
@@ -236,14 +243,13 @@
             project.append(div_bt);
 
             each_project.append(project);
-        });
-
+       
 
         //Add verified Projects 
         var ver_pic_main = document.getElementById("verified_pic");
         ver_pic_main.style.overflow = "auto";
 
-        document.body.addEventListener('click', function () {
+      
             var ver_pic = document.createElement("div");
             ver_pic.style.backgroundColor = "gray";
             ver_pic.style.border = "1px solid rgba(95, 95, 95, 0.7)";
@@ -253,8 +259,11 @@
             ver_pic.style.cssFloat = "left";
             ver_pic.style.opacity = "0.7";
             ver_pic_main.append(ver_pic);
-
-        });
+        }
+                    
+                        
+                });
+            });
 
 
 
