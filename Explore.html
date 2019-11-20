@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="html-explore">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Explore</title>
+    <link rel="stylesheet" type="text/css" href="dear_part/CSS/style_Explore.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body class="body-explore">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Profile</a>
+        <a href="#">Log out</a>
+    </div>
+
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Explore</span>
+    </div>
+
+    <div class="menu">
+        <div class="total">
+            <h3 class="total-save">NOW SAVE</h3>
+            <h3 class="total-save" id="numSave">0</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-exp">
+                <div class="scan" id="scan" onclick="return showQRIntro();" onchange="openQRCamera(this);">
+                    <h4 style="text-decoration:none;color:#145A32">SCAN</h4>
+                </div>
+                
+
+                <input type=file
+                accept="image/*"
+                capture=environment
+                onchange="openQRCamera(this);"
+                tabindex=-1 >
+                <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+               
+                <script>
+                    function openQRCamera(node) {
+                        var reader = new FileReader();
+                        reader.onload = function() {
+                          node.value = "";
+                          qrcode.callback = function(res) {
+                            if(res instanceof Error) {
+                              alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
+                            } else {
+                              node.parentNode.previousElementSibling.value = res;
+                            }
+                          };
+                          qrcode.decode(reader.result);
+                        };
+                        reader.readAsDataURL(node.files[0]);
+                        alert(node.files[0]);
+
+                      }
+                      
+                      function showQRIntro() {
+                        return confirm("Use your camera to take a picture of a QR code.");
+                      }
+                </script>
+
+                
+            <div class="ranking">
+                    <h4>RANKING</h4>
+                    <h4 id="rank">0</h4>
+
+                </div>
+            </div>
+
+            <div class="col-exp">
+                <div class="your-save">
+                    <h4>Your save</h4>
+                    <h2 id="save-pcs">0</h2>
+                </div>
+                <a href="index.html#howto" style="text-decoration:none;color:#145A32"><div class="ht-use">
+                    <h4>HOW TO USE</h4>
+                </div></a>
+            </div>
+            <script>
+                // var YourRNK = document.getElementById();
+                var YourSave = document.getElementById('save-pcs');
+                var TotalSave = document.getElementById('numSave');
+                var rnk = document.getElementById('rank');
+                //ดึงค่ามา
+
+                //บวกค่า
+
+                //
+            </script>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div id="main">
+        <span id="title-header" class="header-bar">&#9776;</span>Explore
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Profile</a>
+        <a href="#">Invite friend</a>
+        <a href="#">FAQ</a>
+        <a href="#">About Us</a>
+      </div> -->
+</body>
+ <script src="js/script-explore.js"></script>
+
+</html>

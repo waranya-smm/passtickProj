@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Passtick</title>
+    
+    <link rel="stylesheet" type="text/css" href="style-scrollbar.css">
+    <style>
+        body {
+            background-size: 100%;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        h2 {
+            color: limegreen;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            color:  rgba(143, 143, 143, 0.7);
+            font-size: 90%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #footer {
+            width: 100%;
+            height: 20%;
+        }
+
+        #main {
+            display: block;
+            text-align: center;
+            width: 100%;
+            height: 80%;
+        }
+
+        #each_project {
+            display: block;
+            width: 60%;
+            height: 400px;
+            margin: 0 auto;
+            overflow: auto;
+        }
+
+        #blk_1 {
+            display: block;
+            text-align: center;
+            width: 100%;
+            height: 50%;
+        }
+
+        #pic_logo {
+            display: block;
+            margin: 0 auto;
+
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: grey;
+        }
+
+        #descript {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+
+        }
+
+        .bg_capa {
+            background-color: rgba(95, 95, 95, 0.7);
+            padding: 5%;
+        }
+
+        li {
+            display: block;
+            text-align: center;
+            float: left;
+        }
+
+        #verified_pj {
+            display: block;
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+        }
+        .btn {
+            background-color: green;
+            border: none;
+            border-radius: 0px;
+            color: white;
+            display: inline-block;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 10px;
+            opacity: 0.80;
+        }
+        .--no {
+            background-color: red;
+        }
+
+        .--yes,
+        .--no {
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .bg_nav {
+            background-color: rgba(119, 211, 83, 0.7);
+        }
+    </style>
+
+</head>
+
+<body background="images/gradian-org.png">
+    <div class="navBar" id="navBar">
+        <div id="green" class="bg_nav">
+            <ul id="navbar-nav">
+                <li id=""><a href="index.html">LOG OUT</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="index.html">HOWTO</a></li>
+                <li><a href="index.html">HOME</a></li>
+            </ul>
+            <div class="Navbar__Link-toggle" id="Link-toggle">
+                <i class="fa fa-bars" id="Navbar__Link-toggle"></i>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <h1>SUCCEED PROJECT</h1>
+        <div id="each_project">
+            <ul>
+                <!-- Create your project using JS -->
+
+            </ul>
+        </div>
+
+        <!-- Space -->
+        <div style="height:140px"></div>
+
+        <div id="verified_pj">
+            <h1>VERIFIED PROJECT</h1>
+            <div id="verified_pic">
+                <!-- Create your project using JS-->
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+
+    <script>
+
+        //Add Succeed Project 
+
+        var each_project = document.getElementById("each_project");
+        document.body.addEventListener('click', function () {
+
+            //create each project
+            var project = document.createElement("div");
+            project.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+            project.style.borderRadius = "3px";
+            project.style.paddingLeft = "5%";
+            project.style.paddingBottom = "5%";
+            project.style.paddingRight = "5%";
+            project.style.paddingTop = "5%";
+            project.style.display = "block";
+            project.style.cssFloat = "left";
+
+            var pic_pj = document.createElement('div');
+            // create pic to append project
+            pic_pj.display = "block";
+            pic_pj.style.margin = "0 auto";
+            pic_pj.style.marginBottom = "10%";
+            pic_pj.style.height = "150px";
+            pic_pj.style.width = "150px";
+            pic_pj.style.borderRadius = "50%";
+            pic_pj.style.backgroundImage = "url(images/cats.jpg)";
+
+            var topic_pj = document.createElement('h2');
+            topic_pj.style.textAlign = "center";
+            topic_pj.style.color = "limegreen";
+            topic_pj.textContent = "project name";
+            topic_pj.style.fontFamily = "'Montserrat', sans-serif";
+
+
+            var detail_pj = document.createElement('TEXTAREA');
+            // creat detail to append project 
+            detail_pj.style.textAlign = "center";
+            detail_pj.readOnly = "true";
+            detail_pj.style.color = "gray";
+            detail_pj.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+            detail_pj.style.padding = "2%";
+            detail_pj.style.borderRadius = "3px";
+            detail_pj.style.resize = "none";
+            detail_pj.textContent = "descript something about project...";
+
+            var bt_accept = document.createElement('button');
+            bt_accept.className= "btn";
+            bt_accept.className= "btn --yes";
+            bt_accept.textContent = "accept";
+            bt_accept.style.margin = "10px";
+
+            var bt_naccept = document.createElement('button');
+            bt_naccept.className= "btn";
+            bt_naccept.className= "btn --no";
+            bt_naccept.textContent = "remove";
+            bt_naccept.style.margin = "10px";
+
+            var div_bt=document.createElement('div');
+            div_bt.style.display="none";//hidden if you are not admin
+            
+            // if(){ //้าล้อกอินด้วย admin ให้แสดงอันนี้
+            //     div_bt.style.display= ;
+            // }
+
+            project.append(pic_pj);
+            project.append(topic_pj);
+            project.append(detail_pj);
+
+                                      //
+            div_bt.append(bt_accept); //LOGIN BY ADMIN
+            div_bt.append(bt_naccept) //
+                                      //
+
+            project.append(div_bt);
+
+            each_project.append(project);
+        });
+
+
+        //Add verified Projects 
+        var ver_pic_main = document.getElementById("verified_pic");
+        ver_pic_main.style.overflow ="auto";
+
+        document.body.addEventListener('click', function () {
+            var ver_pic = document.createElement("div");
+            ver_pic.style.backgroundColor = "gray";
+            ver_pic.style.border = "1px solid rgba(95, 95, 95, 0.7)";
+            ver_pic.style.width = "24%";
+            ver_pic.style.height = "150px";
+            ver_pic.style.position = "relative";
+            ver_pic.style.cssFloat = "left";
+            ver_pic.style.opacity = "0.7";
+            ver_pic_main.append(ver_pic);
+
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
