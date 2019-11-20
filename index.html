@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 
   
 
@@ -23,6 +24,18 @@
         </ul>
         <h1 class="money-inc">Monney Increase</h1>
 
+=======
+    <div class="head" id="head">
+        <ul class="navbar-nav" id="navbar-nav">
+            <!-- <li><img src="./img/passtick-logo-gleyscl.png" alt="logo" width="20px"></li> -->
+            <li class="logIn" id="logIn" ><a id="logIn" href="loginPage.html" >LOGIN</a></li>
+            <li><a href="project_show.html" >PROJECTS</a></li>
+            <li><a href="#howto">HOWTO</a></li>
+            <li><a href="#head">HOME</a></li>
+        </ul>
+        <h1 class="money-inc">Money Increase</h1>
+
+>>>>>>> 76dc39b6184d3c3e1498aeced3003346e8f26cfd
         <div class="contain-money" id="contain-money">
             <h1><a id="moneyInc">100</a></h1>
         </div>
@@ -35,7 +48,10 @@
         </div>
         <input class="toRank" id="toRank" type="button" value="RANKING" onclick="location.href='#ranking'">
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 76dc39b6184d3c3e1498aeced3003346e8f26cfd
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
 
@@ -63,16 +79,12 @@
         var tick = document.getElementById('tick');
 
         firestore.collection("SUM").get()
-                        .then((values) => {
-                            values.forEach(element => {
-                                money.innerText = element.data().totalmoney;
-                                pass.innerText = element.data().totalpiece;
-                                
-
+            .then((values) => {
+                    values.forEach(element => {
+                        money.innerText = element.data().totalmoney;
+                        pass.innerText = element.data().totalpiece;
                             });
                     })
-        
-
     </script>
 
     <section id="howto" class="howto">
@@ -104,9 +116,6 @@
                     <tr>
                         <th id="userName">Name of USER</th>
                         <th id="userSaved">300 bth.</th>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td id="pcsUserSaved">30 psc.</td>
                     </tr>
                 </table>
@@ -117,12 +126,8 @@
             <div id="whiteSpace">
                 <table id="shopRnk">
                     <tr>
-                        <th id="shopLogo"></th>
+                        <!-- <th id="shopLogo"></th> -->
                         <th id="shopName">Name of SHOP</th>
-                        <th id="shopSaved">300 bth.</th>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td id="shopLocation">location</td>
                         <td id="pcsShopSaved">30 psc.</td>
                     </tr>
@@ -206,7 +211,6 @@
 
             userName.innerHTML = "awwwwwww";
             getLogo = document.createElement("img");
-
         }
         addRank();
 
@@ -222,9 +226,38 @@
                 moneyInc.style.fontSize = "60px";
             }
         }
-
-
         addMoney();
+        
+        var order_user = '<tr>';
+        var display = document.getElementById("userRnk");
+        firestore.collection("USERS").get()
+            .then((values) => {
+                    values.forEach(element => {
+                        userName.innerText = element.data().username;
+                        pcsUserSaved.innerText = element.data().money +'psc'; 
+                        userSaved.innerText = element.data().piece +'bath';
+                        order_user += '<td>'+ userName +' '+pcsUserSaved+' '+userSaved+'</td>';
+                        
+                });
+                display.appendChild(order_user+'</tr>');
+            })
+
+        
+
+        var order_shop = '<tr>';
+        var display2 = document.getElementById("shopRnk");
+        
+        firestore.collection("SHOP").get()
+            .then((values) => {
+                    values.forEach(element => {
+                        shopName.innerText = element.data().NAME;
+                        pcsShopSaved.innerText = element.data().piece +'psc'; 
+                        shopSaved.innerText = element.data().money +'bath';
+                        order_shop += '<td>'+ shopName+' '+pcsShopSaved+' '+shopSaved+'</td>';
+                });
+                display2.appendChild(order_shop+'</tr>');
+            })
+        
 
     </script>
 </body>
