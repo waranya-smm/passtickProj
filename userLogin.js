@@ -20,14 +20,17 @@ function initApp() {
 
 window.onload = function() {
   initApp();
+  handleSignout();
 };
 
-function handleSignUpShop(e) {
+function handleSignout(e) {
+    console.log('click');
+    
   newfirebase
     .auth()
     .signOut()
     .then(function() {
-        alert("Sign Out Success!");
+        console.log("Sign Out Success!");
     })
     .catch(function(error) {
       // An error happened.

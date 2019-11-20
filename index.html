@@ -9,44 +9,60 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 5fabbf4af4ffcf85717a8b768ae4cde3d4a03dff
     <div class="head" id="head">
         <ul class="navbar-nav" id="navbar-nav">
             <!-- <li><img src="./img/passtick-logo-gleyscl.png" alt="logo" width="20px"></li> -->
-            <li class="logIn" id="logIn" ><a id="logIn" href="loginPage.html" >LOGIN</a></li>
-            <li><a href="project_show.html" >PROJECTS</a></li>
+            <li class="logIn" id="logIn"><a id="logIn" href="loginPage.html">LOGIN</a></li>
+            <li><a href="project_show.html">PROJECTS</a></li>
             <li><a href="#howto">HOWTO</a></li>
             <li><a href="#head">HOME</a></li>
         </ul>
         <h1 class="money-inc">Money Increase</h1>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fabbf4af4ffcf85717a8b768ae4cde3d4a03dff
         <div class="contain-money" id="contain-money">
             <h1><a id="moneyInc">100</a></h1>
         </div>
 
         <div class="passtick" id="passtick">
-            <h3 id="pass">Pass: </h3>
+           <h3> Pass:  <span id="pass">Pass: </span>  Pcs.</h3>
             <h3 id="numPass"></h3>
             <h3 id="tick">Tick: </h3>
             <h3 id="numTick"></h3>
         </div>
         <input class="toRank" id="toRank" type="button" value="RANKING" onclick="location.href='#ranking'">
     </div>
+<<<<<<< HEAD
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+=======
+
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+>>>>>>> 5fabbf4af4ffcf85717a8b768ae4cde3d4a03dff
     <script>
-        
-        
+
+
         var firebaseConfig = {
-                        apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
-                        authDomain: "passtick-2091d.firebaseapp.com",
-                        databaseURL: "https://passtick-2091d.firebaseio.com",
-                        projectId: "passtick-2091d",
-                        storageBucket: "passtick-2091d.appspot.com",
-                        messagingSenderId: "72068778853",
-                        appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
-                        measurementId: "G-JKG1E5W8T6"
+            apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+            authDomain: "passtick-2091d.firebaseapp.com",
+            databaseURL: "https://passtick-2091d.firebaseio.com",
+            projectId: "passtick-2091d",
+            storageBucket: "passtick-2091d.appspot.com",
+            messagingSenderId: "72068778853",
+            appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+            measurementId: "G-JKG1E5W8T6"
         };
         // Initialize Firebase
         const myFirebase = firebase.initializeApp(firebaseConfig);
@@ -59,32 +75,34 @@
 
         firestore.collection("SUM").get()
             .then((values) => {
+<<<<<<< HEAD
             values.forEach(element => {
             money.innerText = element.data().totalmoney+ ' bath.';
             pass.innerText = 'Pass: ' + element.data().totalpiece;
+=======
+                values.forEach(element => {
+                    money.innerText = element.data().totalmoney;
+                    pass.innerText = element.data().totalpiece;
+                });
+            })
+>>>>>>> 5fabbf4af4ffcf85717a8b768ae4cde3d4a03dff
 
-                            });
-                    })
-        
+        showNum();
 
     </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fabbf4af4ffcf85717a8b768ae4cde3d4a03dff
     <section id="howto" class="howto">
         <p class="aboutApp-tp">ABOUT PASS TICK</p>
-        <textarea class="aboutApp" id="aboutApp" rows="26" cols="40" readonly>
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
-                    At w3schools.com you will learn how to make a website. 
-                    We offer free tutorials in all web development technologies.
+        <textarea style="text-align: center;" class="aboutApp" id="aboutApp" rows="26" cols="40" readonly>
+                    We are suppose to save the world with decrease plastic altogether
+                    with increase some chance.
+
+                    PASS: meaning to plastic cup that we saved from shop.
+
+                    TICK: meaning to volunteer projects that we give money from cost of plastic.
                     </textarea>
 
 
@@ -105,9 +123,6 @@
                     <tr>
                         <th id="userName">Name of USER</th>
                         <th id="userSaved">300 bth.</th>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td id="pcsUserSaved">30 psc.</td>
                     </tr>
                 </table>
@@ -118,12 +133,8 @@
             <div id="whiteSpace">
                 <table id="shopRnk">
                     <tr>
-                        <th id="shopLogo"></th>
+                        <!-- <th id="shopLogo"></th> -->
                         <th id="shopName">Name of SHOP</th>
-                        <th id="shopSaved">300 bth.</th>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td id="shopLocation">location</td>
                         <td id="pcsShopSaved">30 psc.</td>
                     </tr>
@@ -207,7 +218,6 @@
 
             userName.innerHTML = name;
             getLogo = document.createElement("img");
-
         }
         addRank();
 
@@ -223,9 +233,38 @@
                 moneyInc.style.fontSize = "60px";
             }
         }
-
-
         addMoney();
+
+        var order_user = '<tr>';
+        var display = document.getElementById("userRnk");
+        firestore.collection("USERS").get()
+            .then((values) => {
+                values.forEach(element => {
+                    userName.innerText = element.data().username;
+                    pcsUserSaved.innerText = element.data().money + 'psc';
+                    userSaved.innerText = element.data().piece + 'bath';
+                    order_user += '<td>' + userName + ' ' + pcsUserSaved + ' ' + userSaved + '</td>';
+
+                });
+                display.appendChild(order_user + '</tr>');
+            })
+
+
+
+        var order_shop = '<tr>';
+        var display2 = document.getElementById("shopRnk");
+
+        firestore.collection("SHOP").get()
+            .then((values) => {
+                values.forEach(element => {
+                    shopName.innerText = element.data().NAME;
+                    pcsShopSaved.innerText = element.data().piece + 'psc';
+                    shopSaved.innerText = element.data().money + 'bath';
+                    order_shop += '<td>' + shopName + ' ' + pcsShopSaved + ' ' + shopSaved + '</td>';
+                });
+                display2.appendChild(order_shop + '</tr>');
+            })
+
 
     </script>
     <!-- <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>

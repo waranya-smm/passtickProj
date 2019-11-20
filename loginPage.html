@@ -106,10 +106,10 @@
 
                     <form>
                         <label>Shop Admin</label><br>
-                        <input id="email" type="email" placeholder="Your Email"><br>
-                        <input id="password" type="password" placeholder="Password"><br>
+                        <input id="emailSh" type="email" placeholder="Your Email"><br>
+                        <input id="passwordSh" type="password" placeholder="Password"><br>
                         <!-- <input type="text" placeholder="Confirm Password"><br> -->
-                        <input onclick="handleLoginAdmin(event)" type="submit" value="Submit"><br>
+                        <input onclick="handleLoginShop(event)" type="submit" value="Submit"><br>
                         <a href="">Forget Password?</a>
                     </form>
 
@@ -120,11 +120,12 @@
                     <p>For managing shop and project, please login as administrator.</p>
                     <form>
                         <label>Administrator</label><br>
-                        <input type="email" placeholder="Your Email"><br>
-                        <input type="password" placeholder="Password"><br>
+                        <input id="emailAM" type="email" placeholder="Your Email"><br>
+                        <input id="passwordAM" type="password" placeholder="Password"><br>
                         <!-- <input type="text" placeholder="Confirm Password"><br> -->
                         <input onclick="handleLoginAdmin(event)" type="submit" value="Submit"><br>
                         <a href="">How can get administrator password?</a>
+                        <p id="detect" style="color: red;"></p>
                     </form>
 
                 </div>

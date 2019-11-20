@@ -34,7 +34,7 @@
 <body>
 
 	<a id="formBack" href="../project_Admin.html">back</a>
-	<div class="container-contact100">
+	<div class="container-contact100" id="formm">
 
 		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422"
 			data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
@@ -59,12 +59,12 @@
 						<p style="color: red;">*</p>
 					</span>
 				</div>
-				<div class="wrap-input10 validate-input">
+				<div class="wrap-input10">
 					<span class="label-input100 ">Cover Image:</span>
 
 				</div>
-				<div class="validate-input upload-btn-wrapper" data-validate="Cover image is required">
-					<p style="color: red;">*</p>
+				<div class="upload-btn-wrapper">
+					
 					<button class="btn input100">Upload a file</button>
 					<input class="input100" type="file" name="phone" id="imageProj" accept=".png, .jpg, .jpeg"
 						onchange="readURL(this);" />
@@ -239,8 +239,14 @@
 			var mngPhone = document.getElementById("mngPhone").value;
 			var projInfo = document.getElementById("projInfo").value;
 
-
 			console.log(stDate);
+
+
+			alert('Project add success!')
+
+		}
+
+		function saveValue() {
 
 		}
 
