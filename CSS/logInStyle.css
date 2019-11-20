@@ -121,6 +121,22 @@ ul {
   }
 }
 
+@media only screen and (max-width: 420px) {
+  #container {
+    left: 15%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  #container {
+    left: 10%;
+  }
+}
+@media only screen and (max-width: 340px) {
+  #container {
+    left: 4%;
+  }
+}
+
 
 #tabcontent {
   z-index: 34;

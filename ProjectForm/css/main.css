@@ -537,3 +537,21 @@ textarea.input100 {
     opacity: 1;
   }
 }
+
+img{
+  max-width:180px;
+}
+
+#formBack {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0.3em 1.5em;
+  left: 20px;
+  border-radius: 40px;
+  
+}
+
+#formBack a :hover {
+  border-color: #57b846;
+}

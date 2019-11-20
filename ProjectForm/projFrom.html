@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Contact V15</title>
+	<title>Add Project</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -27,21 +27,22 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
+	<script src="../lib/jquery.js"></script>
 	<!--===============================================================================================-->
 </head>
 
 <body>
 
-
+	<a id="formBack" href="../project_Admin.html">back</a>
 	<div class="container-contact100">
+
 		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422"
 			data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
 		<div class="wrap-contact100">
 			<div class="contact100-form-title"
 				style="background-image: url(https://images.pexels.com/photos/2422913/pexels-photo-2422913.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
-				<span class="contact100-form-title-1">
+				<span style="font-weight: 700;" class="contact100-form-title-1">
 					Insert Project
 				</span>
 
@@ -53,7 +54,7 @@
 			<form class="contact100-form validate-form">
 				<div class="wrap-input100 validate-input" data-validate="Project name is required">
 					<span class="label-input100">Project Title:</span>
-					<input class="input100" type="text" name="title" placeholder="Enter project name">
+					<input id="proj-title" class="input100" type="text" name="title" placeholder="Enter project name">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -65,16 +66,21 @@
 				<div class="validate-input upload-btn-wrapper" data-validate="Cover image is required">
 					<p style="color: red;">*</p>
 					<button class="btn input100">Upload a file</button>
-					<input class="input100" type="file" name="phone" accept="image/*">
+					<input class="input100" type="file" name="phone" id="imageProj" accept=".png, .jpg, .jpeg"
+						onchange="readURL(this);" />
 					<!-- <input type="file" name="pic" accept="image/*"> -->
 					<span class="focus-input100">
-					</span>
+					</span><br>
+					<img id="blah" src="https://almcharities.com/wp-content/uploads/2019/05/placeholder-circle.png"
+						alt="your image" />
+
 				</div>
+
 
 				<div class="wrap-input100 validate-input" data-validate="Start date is required">
 					<!-- <form action="/action_page.php"> -->
 					<span class="label-input100">Date Start:</span>
-					<input class="input100" type="date" name="date-st">
+					<input id="stDate" class="input100" type="date" name="date-st">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -83,7 +89,7 @@
 				<div class="wrap-input100 validate-input" data-validate="End Date is required">
 					<!-- <form action="/action_page.php"> -->
 					<span class="label-input100">Date End:</span>
-					<input class="input100" type="date" name="date-end">
+					<input id="endDate" class="input100" type="date" name="date-end">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -92,7 +98,7 @@
 
 				<div class="wrap-input100 validate-input" data-validate="Project location name is required">
 					<span class="label-input100">Location:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter location name">
+					<input id="locationProj" class="input100" type="text" name="name" placeholder="Enter location name">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -100,14 +106,14 @@
 
 				<div class="wrap-input100" data-validate="Project manager name is required">
 					<span class="label-input100">Website URL:</span>
-					<input class="input100" type="url" name="name" placeholder="Enter website ulr">
+					<input id="webProj" class="input100" type="url" name="name" placeholder="Enter website ulr">
 					<span class="focus-input100">
 
 					</span>
 				</div>
 				<div class="wrap-input100 validate-input" data-validate="Project expenses is required">
 					<span class="label-input100">Project Expenses:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter project expenses">
+					<input id="projExpn" class="input100" type="text" name="name" placeholder="Enter project expenses">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -121,7 +127,7 @@
 
 				<div class="wrap-input100 validate-input" data-validate="Project manager name is required">
 					<span class="label-input100">Project Manager:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter manager full name">
+					<input id="projMng" class="input100" type="text" name="name" placeholder="Enter manager full name">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -131,13 +137,13 @@
 				<div class="wrap-input100" data-validate="Valid email is required: ex@abc.xyz">
 
 					<span class="label-input100">Email:</span>
-					<input class="input100" type="email" name="email" placeholder="Enter email addess">
+					<input id="mngEmail" class="input100" type="email" name="email" placeholder="Enter email addess">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="Phone is required">
 					<span class="label-input100">Phone:</span>
-					<input class="input100" type="text" name="phone" placeholder="Enter phone number">
+					<input id="mngPhone" class="input100" type="text" name="phone" placeholder="Enter phone number">
 					<span class="focus-input100">
 						<p style="color: red;">*</p>
 					</span>
@@ -147,12 +153,13 @@
 
 				<div class="wrap-input100">
 					<span class="label-input100">Project information:</span>
-					<textarea class="input100" name="message" placeholder="Add project information..."></textarea>
+					<textarea id="projInfo" class="input100" name="message"
+						placeholder="Add project information..."></textarea>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button onclick="getForm()" class="contact100-form-btn">
 						<span>
 							Submit
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -181,28 +188,6 @@
 	<script src="vendor/daterangepicker/daterangepicker.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -219,6 +204,47 @@
 		gtag('js', new Date());
 
 		gtag('config', 'UA-23581568-13');
+
+
+
+		// ===========================Get Form=====================================
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				var imgCover = input.files[0];
+
+				reader.onload = function (e) {
+					$('#blah')
+						.attr('src', e.target.result);
+				};
+
+				reader.readAsDataURL(imgCover);
+				console.log(imgCover);
+				return imgCover;
+
+			}
+		}
+
+		function getForm() {
+			var title = document.getElementById("proj-title").value;
+			var stDate = document.getElementById("stDate").value;
+			console.log(stDate);
+			var endDate = document.getElementById("endDate").value;
+			var projLocation = document.getElementById("locationProj").value;
+			var projURL = document.getElementById("webProj").value;
+			var projExpn = document.getElementById("projExpn").value;
+			var projMng = document.getElementById("projMng").value;
+			var mngEmail = document.getElementById("mngEmail").value;
+			var mngPhone = document.getElementById("mngPhone").value;
+			var projInfo = document.getElementById("projInfo").value;
+
+
+			console.log(stDate);
+
+		}
+
+
 	</script>
 
 </body>
