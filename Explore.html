@@ -7,6 +7,27 @@
     <title>Explore</title>
     <link rel="stylesheet" type="text/css" href="dear_part/CSS/style_Explore.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        .custom-file-input::before {
+            content: 'SCAN QR-CODE';
+            display: inline-block;
+            background: #84FFBB;
+            border: 20px solid  #84FFBB;
+            border-radius: 3px;
+            padding: 40px 14px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 10pt;
+            
+        }
+    </style>
 </head>
 
 <body class="body-explore">
@@ -27,46 +48,41 @@
             <h3 class="total-save" id="numSave">0</h3>
         </div>
 
+        <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
         <div class="row">
             <div class="col-exp">
-                <div class="scan" id="scan" onclick="return showQRIntro();" onchange="openQRCamera(this);">
-                    <h4 style="text-decoration:none;color:#145A32">SCAN</h4>
+                <div class='scan' id='scan'>
+                    <input type=file accept="image/*" capture=environment onchange="openQRCamera(this);"
+                        onclick="return showQRIntro();" tabindex=-1 class="custom-file-input">
                 </div>
-                
 
-                <input type=file
-                accept="image/*"
-                capture=environment
-                onchange="openQRCamera(this);"
-                tabindex=-1 >
-                <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
-               
                 <script>
+
                     function openQRCamera(node) {
                         var reader = new FileReader();
-                        reader.onload = function() {
-                          node.value = "";
-                          qrcode.callback = function(res) {
-                            if(res instanceof Error) {
-                              alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
-                            } else {
-                              node.parentNode.previousElementSibling.value = res;
-                            }
-                          };
-                          qrcode.decode(reader.result);
+                        reader.onload = function () {
+                            node.value = "";
+                            qrcode.callback = function (res) {
+                                if (res instanceof Error) {
+                                    alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
+                                } else {
+                                    node.parentNode.previousElementSibling.value = res;
+                                }
+                            };
+                            qrcode.decode(reader.result);
                         };
                         reader.readAsDataURL(node.files[0]);
-                        alert(node.files[0]);
+                        console.log(node.files[0]);
+                    }
 
-                      }
-                      
-                      function showQRIntro() {
+                    function showQRIntro() {
                         return confirm("Use your camera to take a picture of a QR code.");
-                      }
+
+                    }
                 </script>
 
-                
-            <div class="ranking">
+
+                <div class="ranking">
                     <h4>RANKING</h4>
                     <h4 id="rank">0</h4>
 
@@ -78,9 +94,11 @@
                     <h4>Your save</h4>
                     <h2 id="save-pcs">0</h2>
                 </div>
-                <a href="index.html#howto" style="text-decoration:none;color:#145A32"><div class="ht-use">
-                    <h4>HOW TO USE</h4>
-                </div></a>
+                <a href="index.html#howto" style="text-decoration:none;color:#145A32">
+                    <div class="ht-use">
+                        <h4>HOW TO USE</h4>
+                    </div>
+                </a>
             </div>
             <script>
                 // var YourRNK = document.getElementById();
@@ -111,6 +129,6 @@
         <a href="#">About Us</a>
       </div> -->
 </body>
- <script src="js/script-explore.js"></script>
+<script src="js/script-explore.js"></script>
 
 </html>
