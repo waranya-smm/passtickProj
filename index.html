@@ -9,65 +9,46 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-
-  
-
 
     <div class="head" id="head">
         <ul class="navbar-nav" id="navbar-nav">
             <!-- <li><img src="./img/passtick-logo-gleyscl.png" alt="logo" width="20px"></li> -->
-            <li class="logIn" id="logIn"><a href="loginPage.html">LOGIN</a></li>
-            <li><a href="#proj">PROJECTS</a></li>
-            <li><a href="#howto">HOWTO</a></li>
-            <li><a href="#head">HOME</a></li>
-        </ul>
-        <h1 class="money-inc">Monney Increase</h1>
-
-=======
-    <div class="head" id="head">
-        <ul class="navbar-nav" id="navbar-nav">
-            <!-- <li><img src="./img/passtick-logo-gleyscl.png" alt="logo" width="20px"></li> -->
-            <li class="logIn" id="logIn" ><a id="logIn" href="loginPage.html" >LOGIN</a></li>
-            <li><a href="project_show.html" >PROJECTS</a></li>
+            <li class="logIn" id="logIn"><a id="logIn" href="loginPage.html">LOGIN</a></li>
+            <li><a href="project_show.html">PROJECTS</a></li>
             <li><a href="#howto">HOWTO</a></li>
             <li><a href="#head">HOME</a></li>
         </ul>
         <h1 class="money-inc">Money Increase</h1>
 
->>>>>>> 76dc39b6184d3c3e1498aeced3003346e8f26cfd
         <div class="contain-money" id="contain-money">
             <h1><a id="moneyInc">100</a></h1>
         </div>
 
         <div class="passtick" id="passtick">
-            <h3 id="pass">Pass: </h3>
+           <h3> Pass:  <span id="pass">Pass: </span>  Pcs.</h3>
             <h3 id="numPass"></h3>
             <h3 id="tick">Tick: </h3>
             <h3 id="numTick"></h3>
         </div>
         <input class="toRank" id="toRank" type="button" value="RANKING" onclick="location.href='#ranking'">
     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 76dc39b6184d3c3e1498aeced3003346e8f26cfd
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
 
-            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
     <script>
-        
-        
+
+
         var firebaseConfig = {
-                        apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
-                        authDomain: "passtick-2091d.firebaseapp.com",
-                        databaseURL: "https://passtick-2091d.firebaseio.com",
-                        projectId: "passtick-2091d",
-                        storageBucket: "passtick-2091d.appspot.com",
-                        messagingSenderId: "72068778853",
-                        appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
-                        measurementId: "G-JKG1E5W8T6"
+            apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+            authDomain: "passtick-2091d.firebaseapp.com",
+            databaseURL: "https://passtick-2091d.firebaseio.com",
+            projectId: "passtick-2091d",
+            storageBucket: "passtick-2091d.appspot.com",
+            messagingSenderId: "72068778853",
+            appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+            measurementId: "G-JKG1E5W8T6"
         };
         // Initialize Firebase
         const myFirebase = firebase.initializeApp(firebaseConfig);
@@ -80,11 +61,14 @@
 
         firestore.collection("SUM").get()
             .then((values) => {
-                    values.forEach(element => {
-                        money.innerText = element.data().totalmoney;
-                        pass.innerText = element.data().totalpiece;
-                            });
-                    })
+                values.forEach(element => {
+                    money.innerText = element.data().totalmoney;
+                    pass.innerText = element.data().totalpiece;
+                });
+            })
+
+        showNum();
+
     </script>
 
     <section id="howto" class="howto">
@@ -227,37 +211,37 @@
             }
         }
         addMoney();
-        
+
         var order_user = '<tr>';
         var display = document.getElementById("userRnk");
         firestore.collection("USERS").get()
             .then((values) => {
-                    values.forEach(element => {
-                        userName.innerText = element.data().username;
-                        pcsUserSaved.innerText = element.data().money +'psc'; 
-                        userSaved.innerText = element.data().piece +'bath';
-                        order_user += '<td>'+ userName +' '+pcsUserSaved+' '+userSaved+'</td>';
-                        
+                values.forEach(element => {
+                    userName.innerText = element.data().username;
+                    pcsUserSaved.innerText = element.data().money + 'psc';
+                    userSaved.innerText = element.data().piece + 'bath';
+                    order_user += '<td>' + userName + ' ' + pcsUserSaved + ' ' + userSaved + '</td>';
+
                 });
-                display.appendChild(order_user+'</tr>');
+                display.appendChild(order_user + '</tr>');
             })
 
-        
+
 
         var order_shop = '<tr>';
         var display2 = document.getElementById("shopRnk");
-        
+
         firestore.collection("SHOP").get()
             .then((values) => {
-                    values.forEach(element => {
-                        shopName.innerText = element.data().NAME;
-                        pcsShopSaved.innerText = element.data().piece +'psc'; 
-                        shopSaved.innerText = element.data().money +'bath';
-                        order_shop += '<td>'+ shopName+' '+pcsShopSaved+' '+shopSaved+'</td>';
+                values.forEach(element => {
+                    shopName.innerText = element.data().NAME;
+                    pcsShopSaved.innerText = element.data().piece + 'psc';
+                    shopSaved.innerText = element.data().money + 'bath';
+                    order_shop += '<td>' + shopName + ' ' + pcsShopSaved + ' ' + shopSaved + '</td>';
                 });
-                display2.appendChild(order_shop+'</tr>');
+                display2.appendChild(order_shop + '</tr>');
             })
-        
+
 
     </script>
 </body>
