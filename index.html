@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pass Tick</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="head" id="head">
+        <ul class="navbar-nav" id="navbar-nav">
+            <!-- <li><img src="./img/passtick-logo-gleyscl.png" alt="logo" width="20px"></li> -->
+            <li class="logIn" id="logIn" ><a id="logIn" href="loginPage.html" >LOGIN</a></li>
+            <li><a href="project_show.html" >PROJECTS</a></li>
+            <li><a href="#howto">HOWTO</a></li>
+            <li><a href="#head">HOME</a></li>
+        </ul>
+        <h1 class="money-inc">Money Increase</h1>
+        <div class="contain-money" id="contain-money">
+            <h1><a id="moneyInc">100</a></h1>
+        </div>
+
+        <div class="passtick" id="passtick">
+            <h3 id="pass">Pass: </h3>
+            <h3 id="numPass"></h3>
+            <h3 id="tick">Tick: </h3>
+            <h3 id="numTick"></h3>
+        </div>
+        <input class="toRank" id="toRank" type="button" value="RANKING" onclick="location.href='#ranking'">
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script>
+        
+        
+        var firebaseConfig = {
+                        apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+                        authDomain: "passtick-2091d.firebaseapp.com",
+                        databaseURL: "https://passtick-2091d.firebaseio.com",
+                        projectId: "passtick-2091d",
+                        storageBucket: "passtick-2091d.appspot.com",
+                        messagingSenderId: "72068778853",
+                        appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+                        measurementId: "G-JKG1E5W8T6"
+        };
+        // Initialize Firebase
+        const myFirebase = firebase.initializeApp(firebaseConfig);
+        // firebase.analytics();
+        let firestore = myFirebase.firestore();
+
+        var money = document.getElementById('moneyInc');
+        var pass = document.getElementById('pass');
+        var tick = document.getElementById('tick');
+
+        firestore.collection("SUM").get()
+                        .then((values) => {
+                            values.forEach(element => {
+                                money.innerText = element.data().totalmoney;
+                                pass.innerText = element.data().totalpiece;
+                                
+
+                            });
+                    })
+        
+
+    </script>
+    <section id="howto" class="howto">
+        <p class="aboutApp-tp">ABOUT PASS TICK</p>
+        <textarea class="aboutApp" id="aboutApp" rows="26" cols="40" readonly>
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    At w3schools.com you will learn how to make a website. 
+                    We offer free tutorials in all web development technologies.
+                    </textarea>
+
+
+    </section>
+
+    <section class="ranking" id="ranking">
+
+        <input class="tablink tabUser" onclick="openPage('USER', this, '#fbad5a')" id="defaultOpen" type="submit"
+            value="USER" />
+        <input class="tablink tabShop" onclick="openPage('SHOP', this, '#acb96a')" type="submit" value="SHOP" />
+
+
+        <div id="rankBG" class="tabBG"></div>
+
+        <div id="USER" class="tabcontent">
+            <div id="whiteSpace">
+                <table id="userRnk">
+                    <tr>
+                        <th id="userName">Name of USER</th>
+                        <th id="userSaved">300 bth.</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="pcsUserSaved">30 psc.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="SHOP" class="tabcontent">
+            <div id="whiteSpace">
+                <table id="shopRnk">
+                    <tr>
+                        <th id="shopLogo"></th>
+                        <th id="shopName">Name of SHOP</th>
+                        <th id="shopSaved">300 bth.</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="shopLocation">location</td>
+                        <td id="pcsShopSaved">30 psc.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        var headd = document.getElementById("head");
+        headd.style.backgroundImage = "URL('./img/head-pic.png')"
+        headd.style.height = "720px";
+        headd.style.marginBottom = "5%";
+        headd.style.position = "relative";
+
+        var greenBG = "URL('./img/green-side.png')";
+        var howto = document.getElementById("howto");
+
+        howto.style.backgroundImage = greenBG;
+        howto.style.width = "100%";
+        howto.style.height = "720px";
+        howto.style.position = "relative";
+        howto.style.marginBottom = "5%";
+
+        function openPage(pageName, elmnt, color) {
+
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+
+
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+
+            document.getElementById(pageName).style.display = "block";  //button
+            elmnt.style.backgroundColor = color;
+
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+
+        function showNum() {
+            var passtick = document.getElementById("passtick");
+            var pass = document.getElementById("pass");
+            var tick = document.getElementById("tick");
+            var passCnt = document.getElementById("numPass");
+            var tickCnt = document.getElementById("numTick");
+
+            passCnt = 1;
+            tickCnt = 0;
+
+
+            pass.innerHTML = "Pass: " + passCnt + "   piece.";
+            tick.innerHTML = "Tick: " + tickCnt + "    project.";
+
+
+
+        }
+        showNum();
+
+        function addRank() {
+            var userName = document.getElementById("userName");
+            var shopName = document.getElementById("shopName");
+            var userSaved = document.getElementById("userSaved");
+            var shopSaved = document.getElementById("shopSaved");
+            var pcsUserSaved = document.getElementById("pcsUserSaved");
+            var pcsShopSaved = document.getElementById("pcsShopSaved");
+            var shopLogo = document.getElementById("shopLocation");
+            var shopLocation = document.getElementById("shopLocation");
+
+            var userList = 10;
+            var shopList = 5;
+
+            userName.innerHTML = "awwwwwww";
+            getLogo = document.createElement("img");
+
+        }
+        addRank();
+
+        function addMoney() {
+            var defaultMoney = + 20;
+            incMoney();
+            function incMoney() {
+                // var defaultMoney = 20;
+
+                var moneyInc = document.getElementById("moneyInc");
+                moneyInc.innerHTML = defaultMoney;
+                moneyInc.style.fontWeight = "bold";
+                moneyInc.style.fontSize = "60px";
+            }
+        }
+
+
+        addMoney();
+
+    </script>
+</body>
+<footer>
+    <div class="footerr" id="footerr">
+        <h1></h1>
+    </div>
+</footer>
+
+</html>

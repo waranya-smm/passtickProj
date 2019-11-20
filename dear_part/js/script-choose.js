@@ -68,7 +68,20 @@ firestore.collection("SHOP").get()
             money = element.data().money;
         }
     });
-    console.log();
+})
+
+var username = 'pair'; //เปลี่ยนตรงนี่ด้วยถเาได้ usernameแล้ว
+var user_piece = ;
+var user_money = ;
+firestore.collection("Users").get()
+.then((values) => {
+    values.forEach(element => {
+
+        if(user_name == element.data().username){ //
+            user_piece = element.data().piece;
+            user_money = element.data().money;
+        }
+    });
 })
     var nextbutt = document.getElementById('button-next');
         nextbutt.addEventListener('click',function () {
@@ -81,10 +94,33 @@ firestore.collection("SHOP").get()
             }else if(dots[1].className == 'dot active'){
                 onz = 4 ;
             }
+            
+            firestore.collection("Users").where("username", "==",user_name)
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                      firestore.collection("Users").doc(doc.id)
+                      .update({money: money+onz ,
+                                piece: piece+1
+                    });
+                  });
+             })
+        
 
         // Add a new document in collection "cities"
         console.log(onz)
         console.log(money)
+        firestore.collection("SUM").doc('3VVrh6dHI5Njtm8TyPwM').update({ 
+            totalpiece: totalpiece.value + onz,
+            totalmoney: totalmoney.value + 1
+            
+        })
+        console.log(totalpiece);
+        console.log(totalmoney);
+        // firestore.collection("Users").doc('').update({ 
+            
+        // })
+        
         firestore.collection("SHOP").doc(shop_select.value).update({ 
             VALUE: shop_select.value,
             piece: piece +1,
