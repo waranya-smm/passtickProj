@@ -51,7 +51,7 @@
         <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
         <div class="row">
             <div class="col-exp">
-                <div class='scan' id='scan'>
+<!--            <div class='scan' id='scan'>
                     <input type=file accept="image/*" capture=environment onchange="openQRCamera(this);"
                         onclick="return showQRIntro();" tabindex=-1 class="custom-file-input">
                 </div>
@@ -80,7 +80,7 @@
 
                     }
                 </script>
-
+ -->
 
                 <div class="ranking">
                     <h4>RANKING</h4>
@@ -100,17 +100,74 @@
                     </div>
                 </a>
             </div>
+ 
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
             <script>
+                  var   firebaseConfig = {
+                        apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+                        authDomain: "passtick-2091d.firebaseapp.com",
+                        databaseURL: "https://passtick-2091d.firebaseio.com",
+                        projectId: "passtick-2091d",
+                        storageBucket: "passtick-2091d.appspot.com",
+                        messagingSenderId: "72068778853",
+                        appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+                        measurementId: "G-JKG1E5W8T6"
+                };
+                
+                const myFirebase = firebase.initializeApp(firebaseConfig);
+                let firestore = myFirebase.firestore();
+
+                // function writeData () {
+                //     firestore.collection("store").add({ 
+                //         item: "Nendoroid",
+                //         name: "Hatsune Miku",
+                //         id: 33,
+                //         available: true
+                //     });
+                // }
                 // var YourRNK = document.getElementById();
+                var numSave = document.getElementById('numSave');
                 var YourSave = document.getElementById('save-pcs');
                 var TotalSave = document.getElementById('numSave');
-                var rnk = document.getElementById('rank');
-                //ดึงค่ามา
+                var Rnk = document.getElementById('rank');
+                var totalmoney = 0;
+                
+                readData();
+                function readData () {
+                    firestore.collection("USERS").get()
+                        .then((values) => {
+                            values.forEach(element => {
+                                //เเอาเมลจากดิวไปเก็บไว้ไฟล์เบสนะ ปล.แพรเอง Username/Email
+                                if(element.data().username == 'pair'){
+                                // YourSave.innerText = element.data().money;
+                                // TotalSave = element.data().piece;
+                                // Rnk = element.data().rank;
+                                }
+                                YourSave.innerText = element.data().money;
+                                Rnk.innerText = element.data().rank;
+                                
 
-                //บวกค่า
-
-                //
+                            });
+                            
+                            console.log("save :"+ YourSave);
+                            console.log("savenow :"+ TotalSave);
+                            console.log("rank :"+ Rnk);
+                    })
+                    firestore.collection("SUM").get()
+                        .then((values) => {
+                            values.forEach(element => {
+                                // numSave = element.data().totalmoney;
+                                TotalSave.innerText = element.data().totalmoney;    
+                            });
+                            
+                            
+                    })
+                }
             </script>
+            
         </div>
     </div>
 
@@ -129,6 +186,7 @@
         <a href="#">About Us</a>
       </div> -->
 </body>
-<script src="js/script-explore.js"></script>
+<script src="dear_part/js/script-explore.js"></script>
+
 
 </html>

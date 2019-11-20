@@ -4,22 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <title>TEST GET API FIREBASE</title>
-    <script src=""></script>
 </head>
 
 <body>
     <p></p>
-    <button onclick="onPress()">Clickme</button>
+    <button onclick="writeData()">Clickme</button>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/7.4.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/7.4.0/firebase-analytics.js"></script>
-
-    <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
+    
+    <script>
+    const   firebaseConfig = {
+            apiKey: "AIzaSyAMO6UO5jFrzwxqeQrhwPDfkYQxy_7krko",
+            authDomain: "test-520fd.firebaseapp.com",
+            databaseURL: "https://test-520fd.firebaseio.com",
+            projectId: "test-520fd",
+            storageBucket: "test-520fd.appspot.com",
+            messagingSenderId: "256733756786",
+            appId: "1:256733756786:web:940abef27b64f5025931eb",
+            measurementId: "G-QCCNV1JMSH"
+            };
+    firebase.initializeApp(firebaseConfig);
+    function writeData(){
+        alert("function write data");
+        firebase.database().ref("Us").set({
+            username:"asdasdasd",
+            password:"064589851"
+        });
+    }
+</script>
 </body>
 
 </html>

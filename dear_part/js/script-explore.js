@@ -27,3 +27,4 @@ function closeNav() {
 //     document.body.style.backgroundColor = "white";
 // }
 // close.addEventListener("click",closeNav);
+

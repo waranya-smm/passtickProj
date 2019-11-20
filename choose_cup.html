@@ -11,6 +11,11 @@
 </head>
 
 <body>
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+            
     <div class="choose-cup">
         <div id="title-choose"><h2>CHOOSE CUP YOU SAVE</h2></div>
     </div>
@@ -45,15 +50,18 @@
 
     <div class="select-shop">
         <h5 id="select-text">SHOP</h5>
-        <select class="shop-select">
+        <select class="shop-select" id="shop_select">
             <option value="0">Shop Name</option>
         </select>
     </div>
     <div class="select-shop">
-        <input id="button-next" type="submit" value="Next" onclick="window.location.href='../thankYou.html'">
+        <input id="button-next" type="submit" value="Next">
     </div>
-
+    <script src="dear_part/js/script-explore.js"></script>
     <script src="dear_part/js/script-choose.js"></script>
+    
+
+    
     
 
 </body>
