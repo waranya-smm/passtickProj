@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     
     <div class="head" id="head">
         <ul class="navbar-nav" id="navbar-nav">
@@ -20,18 +19,6 @@
             <li><a href="#head">HOME</a></li>
         </ul>
         <h1 class="money-inc">Money Increase</h1>
-=======
-
-    <div class="head" id="head">
-        <ul class="navbar-nav" id="navbar-nav">
-            <!-- <li><img src="./img/passtick-logo-gleyscl.png" alt="logo" width="20px"></li> -->
-            <li class="logIn" id="logIn"><a href="loginPage.html">LOGIN</a></li>
-            <li><a href="#proj">PROJECTS</a></li>
-            <li><a href="#howto">HOWTO</a></li>
-            <li><a href="#head">HOME</a></li>
-        </ul>
-        <h1 class="money-inc">Monney Increase</h1>
->>>>>>> 08a519590e89badea0b6f708b8330989c48d7ad1
         <div class="contain-money" id="contain-money">
             <h1><a id="moneyInc">100</a></h1>
         </div>
@@ -44,10 +31,9 @@
         </div>
         <input class="toRank" id="toRank" type="button" value="RANKING" onclick="location.href='#ranking'">
     </div>
-<<<<<<< HEAD
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
-
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
     <script>
         
@@ -72,19 +58,16 @@
         var tick = document.getElementById('tick');
 
         firestore.collection("SUM").get()
-                        .then((values) => {
-                            values.forEach(element => {
-                                money.innerText = element.data().totalmoney;
-                                pass.innerText = element.data().totalpiece;
-                                
+            .then((values) => {
+            values.forEach(element => {
+            money.innerText = element.data().totalmoney+ ' bath.';
+            pass.innerText = 'Pass: ' + element.data().totalpiece;
 
                             });
                     })
         
 
     </script>
-=======
->>>>>>> 08a519590e89badea0b6f708b8330989c48d7ad1
     <section id="howto" class="howto">
         <p class="aboutApp-tp">ABOUT PASS TICK</p>
         <textarea class="aboutApp" id="aboutApp" rows="26" cols="40" readonly>
@@ -222,7 +205,7 @@
             var userList = 10;
             var shopList = 5;
 
-            userName.innerHTML = "awwwwwww";
+            userName.innerHTML = name;
             getLogo = document.createElement("img");
 
         }
@@ -245,6 +228,24 @@
         addMoney();
 
     </script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCqxmB8bNARGv7doN0HNr4fE4BZc_Fuj78",
+            authDomain: "passtick-login.firebaseapp.com",
+            databaseURL: "https://passtick-login.firebaseio.com",
+            projectId: "passtick-login",
+            storageBucket: "passtick-login.appspot.com",
+            messagingSenderId: "55579632020",
+            appId: "1:55579632020:web:382031ff847a78ba31af81",
+            measurementId: "G-FSSEH86LRB"
+        };
+        // Initialize Firebase
+        const myFirebase = firebase.initializeApp(firebaseConfig);
+    </script> -->
+    <script src="main.js"></script>
 </body>
 <footer>
     <div class="footerr" id="footerr">

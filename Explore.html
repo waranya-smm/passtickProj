@@ -57,18 +57,18 @@
 
         <div id="profileUser">
             <p>Hello,</p>
-            <!-- <h2 id="userName">Bearden</h4> -->
+            <h2 id="userName"></h4>
                 <p id="userEmail">Email:</p>
         </div>
         <div class="total">
             <h3 class="total-save">NOW SAVE</h3>
-            <h3 class="total-save" id="numSave">0</h3>
+            <h3 class="total-save" id="numSave">17</h3>
         </div>
 
         <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
         <div class="row">
             <div class="col-exp">
-                <!--            <div class='scan' id='scan'>
+                           <div class='scan' id='scan'>
                     <input type=file accept="image/*" capture=environment onchange="openQRCamera(this);"
                         onclick="return showQRIntro();" tabindex=-1 class="custom-file-input">
                 </div>
@@ -97,7 +97,7 @@
 
                     }
                 </script>
- -->
+
 
                 <div class="ranking">
                     <h4>RANKING</h4>
@@ -109,7 +109,7 @@
             <div class="col-exp">
                 <div class="your-save">
                     <h4>Your save</h4>
-                    <h2 id="save-pcs">0</h2>
+                    <h2 id="save-pcs">1</h2>
                 </div>
                 <a href="index.html#howto" style="text-decoration:none;color:#145A32">
                     <div class="ht-use">
@@ -120,18 +120,18 @@
 
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
-
+            <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
             <script>
                 var firebaseConfig = {
-                    apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
-                    authDomain: "passtick-2091d.firebaseapp.com",
-                    databaseURL: "https://passtick-2091d.firebaseio.com",
-                    projectId: "passtick-2091d",
-                    storageBucket: "passtick-2091d.appspot.com",
-                    messagingSenderId: "72068778853",
-                    appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
-                    measurementId: "G-JKG1E5W8T6"
+                    apiKey: "AIzaSyCqxmB8bNARGv7doN0HNr4fE4BZc_Fuj78",
+                    authDomain: "passtick-login.firebaseapp.com",
+                    databaseURL: "https://passtick-login.firebaseio.com",
+                    projectId: "passtick-login",
+                    storageBucket: "passtick-login.appspot.com",
+                    messagingSenderId: "55579632020",
+                    appId: "1:55579632020:web:382031ff847a78ba31af81",
+                    measurementId: "G-FSSEH86LRB"
                 };
 
                 const myFirebase = firebase.initializeApp(firebaseConfig);
@@ -154,35 +154,36 @@
 
                 readData();
                 function readData() {
-                    firestore.collection("USERS").get()
-                        .then((values) => {
-                            values.forEach(element => {
-                                //เเอาเมลจากดิวไปเก็บไว้ไฟล์เบสนะ ปล.แพรเอง Username/Email
-                                if (element.data().username == 'pair') {
-                                    // YourSave.innerText = element.data().money;
-                                    // TotalSave = element.data().piece;
-                                    // Rnk = element.data().rank;
-                                }
-                                YourSave.innerText = element.data().money;
-                                Rnk.innerText = element.data().rank;
+                    const uid = sessionStorage.getItem('userId')
+                    //const name = sessionStorage.getItem('userName')
+
+                    console.log(uid)
+                    //console.log(name)
+                    if (uid) {
+                        firestore.collection('users').doc(uid).get()
+                        //firestore.collection('users').doc(name).get()
+                            .then((values) => {
+                                const user = values.data();
+                                console.log(user)
+                                // YourSave.innerText = user.money;
+                                // Rnk.innerText = user.rank;
+                                //console.log("username"+ name)
+                                // console.log("user name : "+user.userName)
+                                // console.log("save :" + YourSave);
+                                // console.log("savenow :" + TotalSave);
+                                // console.log("rank :" + Rnk);
+                            })
+                        firestore.collection("SUM").get()
+                            .then((values) => {
+                                values.forEach(element => {
+                                    // numSave = element.data().totalmoney;
+                                    TotalSave.innerText = element.data().totalmoney;
+                                });
 
 
-                            });
-
-                            console.log("save :" + YourSave);
-                            console.log("savenow :" + TotalSave);
-                            console.log("rank :" + Rnk);
-                        })
-                    firestore.collection("SUM").get()
-                        .then((values) => {
-                            values.forEach(element => {
-                                // numSave = element.data().totalmoney;
-                                TotalSave.innerText = element.data().totalmoney;
-                            });
-
-
-                        })
-                }
+                            })
+                        }
+                    }
             </script>
 
         </div>
@@ -225,6 +226,7 @@
         console.log(newfirebase)
     </script>
     <!-- <script src="signup.js"></script> -->
+    <script src="main.js"></script>
     <script src="userLogin.js"></script>
     <script src="dear_part/js/script-explore.js"></script>
 </body>

@@ -19,21 +19,33 @@ function handleSignUp(e) {
   myFirebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(function(result) {
+    .then(async function(result) {
       console.log("OK");
       console.log(result);
-    })
-    .then(function(sendEmailVerify) {
-      if (sendEmailVerify === false) {
-        return false;
-      } else {
-        myFirebase.auth().currentUser.sendEmailVerification();
-        alert("Email Verification Sent! Please check your email address. ");
-        alert("Register Success!");
+      console.log(result.user.uid)
+      var userNow = firebase.auth().currentUser;
+      await userNow.updateProfile({
+        displayName: userName
+      })
+      await db.collection('users').doc(result.user.uid).set({
+        userName,
+        email,
+        password
+      }).then(() => {
         window.location = "index.html";
-        return true;
-      }
+      })
     })
+    // .then(function(sendEmailVerify) {
+    //   if (sendEmailVerify === false) {
+    //     return false;
+    //   } else {
+    //     myFirebase.auth().currentUser.sendEmailVerification();
+    //     alert("Email Verification Sent! Please check your email address. ");
+    //     alert("Register Success!");
+    //     window.location = "index.html";
+    //     return true;
+    //   }
+    // })
     .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;

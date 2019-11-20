@@ -5,12 +5,15 @@ function initApp() {
       name = user.displayName;
       email = user.email;
       uid = user.uid;
+      document.getElementById("userName").innerText = name;
       document.getElementById("userEmail").innerText = email;
-      console.log(name);
-      console.log(email);
-      console.log(uid);
+      console.log(user)
+      sessionStorage.setItem('userId', uid)
+      //sessionStorage.setItem('userName', name)
     } else {
-      alert("No user!");
+      //alert("No user!");
+      sessionStorage.setItem('userId', null)
+      //sessionStorage.setItem('userName', null)
     }
   });
 }
