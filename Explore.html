@@ -16,7 +16,7 @@
             content: 'SCAN QR-CODE';
             display: inline-block;
             background: #84FFBB;
-            border: 20px solid  #84FFBB;
+            border: 20px solid #84FFBB;
             border-radius: 3px;
             padding: 40px 14px;
             outline: none;
@@ -25,24 +25,41 @@
             cursor: pointer;
             font-weight: 700;
             font-size: 10pt;
-            
+
+        }
+
+        #profileUser {
+            text-align: center;
+
+            border-radius: 20px;
+            padding: 20px 0;
+            margin-bottom: 20px;
         }
     </style>
+
 </head>
 
 <body class="body-explore">
+    <!-- <img src="./img/pexels-photo-744789.jpeg" alt="" srcset=""> -->
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">Profile</a>
-        <a href="#">Log out</a>
+        <a onclick="handleSignout()">Log out</a>
     </div>
 
     <div id="main">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Explore</span>
     </div>
 
+
     <div class="menu">
+
+        <div id="profileUser">
+            <p>Hello,</p>
+            <!-- <h2 id="userName">Bearden</h4> -->
+                <p id="userEmail">Email:</p>
+        </div>
         <div class="total">
             <h3 class="total-save">NOW SAVE</h3>
             <h3 class="total-save" id="numSave">0</h3>
@@ -51,7 +68,7 @@
         <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
         <div class="row">
             <div class="col-exp">
-<!--            <div class='scan' id='scan'>
+                <!--            <div class='scan' id='scan'>
                     <input type=file accept="image/*" capture=environment onchange="openQRCamera(this);"
                         onclick="return showQRIntro();" tabindex=-1 class="custom-file-input">
                 </div>
@@ -100,23 +117,23 @@
                     </div>
                 </a>
             </div>
- 
+
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
 
             <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
             <script>
-                  var   firebaseConfig = {
-                        apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
-                        authDomain: "passtick-2091d.firebaseapp.com",
-                        databaseURL: "https://passtick-2091d.firebaseio.com",
-                        projectId: "passtick-2091d",
-                        storageBucket: "passtick-2091d.appspot.com",
-                        messagingSenderId: "72068778853",
-                        appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
-                        measurementId: "G-JKG1E5W8T6"
+                var firebaseConfig = {
+                    apiKey: "AIzaSyDilDOj4krjyoLendzdQR3wPflZ_Pw2iqo",
+                    authDomain: "passtick-2091d.firebaseapp.com",
+                    databaseURL: "https://passtick-2091d.firebaseio.com",
+                    projectId: "passtick-2091d",
+                    storageBucket: "passtick-2091d.appspot.com",
+                    messagingSenderId: "72068778853",
+                    appId: "1:72068778853:web:ccb24aad52696ab6bc2f8c",
+                    measurementId: "G-JKG1E5W8T6"
                 };
-                
+
                 const myFirebase = firebase.initializeApp(firebaseConfig);
                 let firestore = myFirebase.firestore();
 
@@ -134,40 +151,40 @@
                 var TotalSave = document.getElementById('numSave');
                 var Rnk = document.getElementById('rank');
                 var totalmoney = 0;
-                
+
                 readData();
-                function readData () {
+                function readData() {
                     firestore.collection("USERS").get()
                         .then((values) => {
                             values.forEach(element => {
                                 //เเอาเมลจากดิวไปเก็บไว้ไฟล์เบสนะ ปล.แพรเอง Username/Email
-                                if(element.data().username == 'pair'){
-                                // YourSave.innerText = element.data().money;
-                                // TotalSave = element.data().piece;
-                                // Rnk = element.data().rank;
+                                if (element.data().username == 'pair') {
+                                    // YourSave.innerText = element.data().money;
+                                    // TotalSave = element.data().piece;
+                                    // Rnk = element.data().rank;
                                 }
                                 YourSave.innerText = element.data().money;
                                 Rnk.innerText = element.data().rank;
-                                
+
 
                             });
-                            
-                            console.log("save :"+ YourSave);
-                            console.log("savenow :"+ TotalSave);
-                            console.log("rank :"+ Rnk);
-                    })
+
+                            console.log("save :" + YourSave);
+                            console.log("savenow :" + TotalSave);
+                            console.log("rank :" + Rnk);
+                        })
                     firestore.collection("SUM").get()
                         .then((values) => {
                             values.forEach(element => {
                                 // numSave = element.data().totalmoney;
-                                TotalSave.innerText = element.data().totalmoney;    
+                                TotalSave.innerText = element.data().totalmoney;
                             });
-                            
-                            
-                    })
+
+
+                        })
                 }
             </script>
-            
+
         </div>
     </div>
 
@@ -185,8 +202,33 @@
         <a href="#">FAQ</a>
         <a href="#">About Us</a>
       </div> -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var FBconfig = {
+            apiKey: "AIzaSyCqxmB8bNARGv7doN0HNr4fE4BZc_Fuj78",
+            authDomain: "passtick-login.firebaseapp.com",
+            databaseURL: "https://passtick-login.firebaseio.com",
+            projectId: "passtick-login",
+            storageBucket: "passtick-login.appspot.com",
+            messagingSenderId: "55579632020",
+            appId: "1:55579632020:web:382031ff847a78ba31af81",
+            measurementId: "G-FSSEH86LRB"
+        };
+        // Initialize Firebase
+        const newfirebase = firebase.initializeApp(FBconfig);
+        // firebase.analytics();
+        console.log(newfirebase)
+    </script>
+    <!-- <script src="signup.js"></script> -->
+    <script src="userLogin.js"></script>
+    <script src="dear_part/js/script-explore.js"></script>
 </body>
-<script src="dear_part/js/script-explore.js"></script>
+
 
 
 </html>
