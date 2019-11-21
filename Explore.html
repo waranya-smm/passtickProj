@@ -62,6 +62,19 @@
             background-position: right center; 
         }
 
+        #button4 {
+            background-color: transparent;
+            cursor: pointer;
+            padding: 4em 10em;
+            border: none;
+            
+        }
+
+       input [type=button] {
+           font-size: 30px;
+           color: teal;
+       }
+
         @media all and (max-width:30em) {
             a.button3 {
                 display: block;
@@ -104,33 +117,34 @@
         <div class="row">
             <div class="col-exp">
                            <div class='scan' id='scan'>
-                    <input type=file accept="image/*" capture=environment onchange="openQRCamera(this);"
-                        onclick="return showQRIntro();" tabindex=-1 class="custom-file-input">
+                    <!-- <input type=file accept="image/*" capture=environment onchange="openQRCamera(this);"
+                   tabindex=-1 class="custom-file-input"> -->
+                   <a style="font-size: 30px;" id="button44" href="./choose_cup.html"><input id="button4" type="button" class="custom-file-input" value="PICK CUP"></a>
                 </div>
 
                 <script>
 
-                    function openQRCamera(node) {
-                        var reader = new FileReader();
-                        reader.onload = function () {
-                            node.value = "";
-                            qrcode.callback = function (res) {
-                                if (res instanceof Error) {
-                                    alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
-                                } else {
-                                    node.parentNode.previousElementSibling.value = res;
-                                }
-                            };
-                            qrcode.decode(reader.result);
-                        };
-                        reader.readAsDataURL(node.files[0]);
-                        console.log(node.files[0]);
-                    }
+                    // function openQRCamera(node) {
+                    //     var reader = new FileReader();
+                    //     reader.onload = function () {
+                    //         node.value = "";
+                    //         qrcode.callback = function (res) {
+                    //             if (res instanceof Error) {
+                    //                 alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
+                    //             } else {
+                    //                 node.parentNode.previousElementSibling.value = res;
+                    //             }
+                    //         };
+                    //         qrcode.decode(reader.result);
+                    //     };
+                    //     reader.readAsDataURL(node.files[0]);
+                    //     console.log(node.files[0]);
+                    // }
 
-                    function showQRIntro() {
-                        return confirm("Use your camera to take a picture of a QR code.");
+                    // function showQRIntro() {
+                    //     return confirm("Use your camera to take a picture of a QR code.");
 
-                    }
+                    // }
                 </script>
 
 
@@ -238,11 +252,12 @@
         <a href="#">FAQ</a>
         <a href="#">About Us</a>
       </div> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+   
     <script>
         // Your web app's Firebase configuration
         var FBconfig = {
@@ -259,7 +274,7 @@
         const newfirebase = firebase.initializeApp(FBconfig);
         // firebase.analytics();
         console.log(newfirebase)
-    </script> -->
+    </script>
     <!-- <script src="signup.js"></script> -->
     <script src="main.js"></script>
     <script src="userLogin.js"></script>
