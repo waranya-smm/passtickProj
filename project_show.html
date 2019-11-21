@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <title>Passtick</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
+    <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style-scrollbar.css">
     <style>
         body {
@@ -197,7 +198,7 @@
             var topic_pj = document.createElement('h2');
             topic_pj.style.textAlign = "center";
             topic_pj.style.color = "limegreen";
-            topic_pj.textContent = "project name";
+            topic_pj.textContent = jd.project[i].title;
             topic_pj.style.fontFamily = "'Montserrat', sans-serif";
 
 
@@ -210,7 +211,7 @@
             detail_pj.style.padding = "2%";
             detail_pj.style.borderRadius = "3px";
             detail_pj.style.resize = "none";
-            detail_pj.textContent = "descript something about project...";
+            detail_pj.textContent = jd.project[i].info;
 
             var bt_accept = document.createElement('button');
             bt_accept.className = "btn";
@@ -251,10 +252,10 @@
 
       
             var ver_pic = document.createElement("div");
-            ver_pic.style.backgroundColor = "gray";
+            ver_pic.style.backgroundImage = "url("+ jd.project[i].img +")";
             ver_pic.style.border = "1px solid rgba(95, 95, 95, 0.7)";
-            ver_pic.style.width = "24%";
-            ver_pic.style.height = "150px";
+            ver_pic.style.width = "40%";
+            ver_pic.style.height = "300px";
             ver_pic.style.position = "relative";
             ver_pic.style.cssFloat = "left";
             ver_pic.style.opacity = "0.7";
